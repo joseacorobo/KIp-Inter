@@ -423,8 +423,8 @@
                                             <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
                                         </a>
                                         <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByPriority('NONE', 'Sin Prioridad', this)">
-                                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#C7C7CC]"></span>Sin Prioridad</span>
+                                            onclick="event.preventDefault();filterByPriority('NONE', 'S/P', this)">
+                                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#C7C7CC]"></span>S/P (Sin Prioridad)</span>
                                             <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
                                         </a>
                                     </div>
@@ -480,7 +480,7 @@
                                 <% if (tickets && tickets.length > 0) { %>
                                     <% tickets.forEach(function(ticket) { 
                                         let prio = 'NONE';
-                                        let prioLabel = 'Sin Prioridad';
+                                        let prioLabel = 'S/P';
                                         let prioDot = '#C7C7CC';
                                         let prioBg = '#F2F2F7';
                                         let prioTxt = '#8E8E93';
@@ -513,7 +513,7 @@
                                         let area = ticket.area_designada || 'GENERAL';
                                         let cleanSubject = (ticket.asunto || '').replace(/'/g, "\\'");
                                     %>
-                                    <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F9F9FA] group transition-colors" data-area="<%= area %>" data-priority="<%= prio %>" data-assigned="<%= isAssigned %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>">
+                                    <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F9F9FA] group transition-colors" data-area="<%= area %>" data-priority="<%= prio %>" data-assigned="<%= isAssigned %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>" data-subject="<%= cleanSubject %>" data-operator-id="<%= opId %>" data-operator-name="<%= opAsignado || '' %>">
                                         <td class="py-2 px-3 align-middle text-center w-[40px]">
                                             <div class="flex items-center justify-center">
                                                 <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" data-assigned="<%= isAssigned %>" <%= isAssigned ? 'disabled title="Ticket ya en asignación"' : '' %> onchange="TableSelectionManager.handleCheckboxChange(this)" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none <%= isAssigned ? 'opacity-30 cursor-not-allowed pointer-events-none bg-[#E5E5EA]' : 'cursor-pointer' %>">
@@ -526,7 +526,7 @@
                                             </div>
                                         </td>
                                         <td class="py-2 px-2.5 align-middle whitespace-nowrap">
-                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-medium border" style="background-color: <%= prioBg %>; color: <%= prioTxt %>; border-color: <%= prioBorder %>;">
+                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-medium border" style="background-color: <%= prioBg %>; color: <%= prioTxt %>; border-color: <%= prioBorder %>;" title="<%= prio === 'NONE' ? 'Sin Prioridad (S/P)' : ('Prioridad ' + prioLabel) %>">
                                                 <span class="w-1.5 h-1.5 rounded-full" style="background-color: <%= prioDot %>;"></span>
                                                 <%= prioLabel %>
                                             </span>
@@ -1093,6 +1093,7 @@
                     row.classList.remove('bg-[#007AFF]/[0.08]', 'font-medium');
                     if (typeof TableSelectionManager !== 'undefined') {
                         TableSelectionManager.selectedCodes.delete(ticketCode);
+                        TableSelectionManager.sync();
                     }
                 } else {
                     cb.disabled = false;
@@ -1133,22 +1134,26 @@
                         prioBadge.style.backgroundColor = '#FFE5E5';
                         prioBadge.style.color = '#D70015';
                         prioBadge.style.borderColor = '#FFD0D0';
+                        prioBadge.title = 'Prioridad P1 - Crítica';
                         prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #FF3B30;"></span> P1';
                     } else if (prioridad === 'P2') {
                         prioBadge.style.backgroundColor = '#FFF4D6';
                         prioBadge.style.color = '#B25E02';
                         prioBadge.style.borderColor = '#FFE6A6';
+                        prioBadge.title = 'Prioridad P2 - Media';
                         prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #FFBD2E;"></span> P2';
                     } else if (prioridad === 'P3') {
                         prioBadge.style.backgroundColor = '#F2F2F7';
                         prioBadge.style.color = '#1C1C1E';
                         prioBadge.style.borderColor = '#D1D1D6';
+                        prioBadge.title = 'Prioridad P3 - Normal';
                         prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #8E8E93;"></span> P3';
                     } else {
                         prioBadge.style.backgroundColor = '#F2F2F7';
                         prioBadge.style.color = '#8E8E93';
                         prioBadge.style.borderColor = '#E5E5EA';
-                        prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #C7C7CC;"></span> Sin Prioridad';
+                        prioBadge.title = 'Sin Prioridad (S/P)';
+                        prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #C7C7CC;"></span> S/P';
                     }
                 }
             }
@@ -1156,6 +1161,8 @@
             if (area) {
                 row.setAttribute('data-area', area);
             }
+            row.setAttribute('data-operator-id', operatorId || '');
+            row.setAttribute('data-operator-name', operatorName || '');
 
             const currentPrio = (prioridad && prioridad !== 'NONE') ? prioridad : 'P1';
             const cleanSubj = (row.querySelector('.truncate')?.getAttribute('title') || row.querySelector('.truncate')?.textContent || '').replace(/'/g, "\\'");
@@ -1527,14 +1534,40 @@
             TableSelectionManager.toggleAll(masterCheckbox.checked);
         }
 
-        // Asignación Masiva
+        // Enrutamiento del Modal según cantidad de tickets seleccionados
         function openBatchAssignModal() {
             const codes = Array.from(TableSelectionManager.selectedCodes);
             if (codes.length === 0) return;
-            const label = codes.length === 1 
-                ? `Incidencia seleccionada (${codes[0]})` 
-                : `Lote de ${codes.length} incidencias seleccionadas`;
-            openAssignModal(codes.join(', '), label, 'REDES_FTTH', '', '');
+
+            if (codes.length === 1) {
+                // Si el contador es igual a 1, inyectar los datos de esa fila específica en los campos del modal
+                const code = codes[0];
+                const row = document.getElementById('row-' + code);
+                if (row) {
+                    const subject = row.getAttribute('data-subject') 
+                        || row.querySelector('.truncate')?.getAttribute('title') 
+                        || row.querySelector('.truncate')?.textContent?.trim() 
+                        || '';
+                    const area = row.getAttribute('data-area') || 'GENERAL';
+                    const operatorId = row.getAttribute('data-operator-id') || '';
+                    const operatorName = row.getAttribute('data-operator-name') || '';
+                    const priority = row.getAttribute('data-priority') || 'P1';
+
+                    openAssignModal(code, subject, area, operatorId, operatorName, priority);
+                } else {
+                    openAssignModal(code, `Incidencia ${code}`, 'GENERAL', '', '', 'P1');
+                }
+            } else {
+                // Si el contador es mayor a 1, agrupar los IDs separados por comas y cambiar el texto del asunto al formato de lote
+                const groupedCodes = codes.join(', ');
+                const batchSubject = `Lote de ${codes.length} incidencias seleccionadas`;
+
+                // Obtener el área común o de la primera fila seleccionada
+                const firstRow = document.getElementById('row-' + codes[0]);
+                const area = firstRow ? (firstRow.getAttribute('data-area') || 'REDES_FTTH') : 'REDES_FTTH';
+
+                openAssignModal(groupedCodes, batchSubject, area, '', '', 'P1');
+            }
         }
 
         // Auto-inicialización

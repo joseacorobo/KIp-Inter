@@ -116,7 +116,8 @@ app.post('/api/tickets/unassign', async (req, res) => {
             data: {
                 asignado_a_id: null,
                 estado_actual: 'NUEVO',
-                fecha_asignacion: null
+                fecha_asignacion: null,
+                puntos_complejidad: 0
             }
         });
 

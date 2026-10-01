@@ -422,6 +422,11 @@
                                             <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#8E8E93]"></span>P3 (Baja)</span>
                                             <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
                                         </a>
+                                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                            onclick="event.preventDefault();filterByPriority('NONE', 'Sin Prioridad', this)">
+                                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#C7C7CC]"></span>Sin Prioridad</span>
+                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                                        </a>
                                     </div>
                                 </details>
                             </div>
@@ -474,12 +479,19 @@
                             <tbody id="ticketTableBody" class="divide-y divide-[#EBEBF0] text-[12px] font-normal">
                                 <% if (tickets && tickets.length > 0) { %>
                                     <% tickets.forEach(function(ticket) { 
-                                        let prio = 'P3';
-                                        let prioDot = '#8E8E93'; let prioBg = '#F2F2F7'; let prioTxt = '#1C1C1E';
+                                        let prio = 'NONE';
+                                        let prioLabel = 'Sin Prioridad';
+                                        let prioDot = '#C7C7CC';
+                                        let prioBg = '#F2F2F7';
+                                        let prioTxt = '#8E8E93';
+                                        let prioBorder = '#E5E5EA';
+
                                         if (ticket.puntos_complejidad >= 8) {
-                                            prio = 'P1'; prioDot = '#FF3B30'; prioBg = '#FFE5E5'; prioTxt = '#D70015';
+                                            prio = 'P1'; prioLabel = 'P1'; prioDot = '#FF3B30'; prioBg = '#FFE5E5'; prioTxt = '#D70015'; prioBorder = '#FFD0D0';
                                         } else if (ticket.puntos_complejidad >= 5) {
-                                            prio = 'P2'; prioDot = '#FFBD2E'; prioBg = '#FFF4D6'; prioTxt = '#B25E02';
+                                            prio = 'P2'; prioLabel = 'P2'; prioDot = '#FFBD2E'; prioBg = '#FFF4D6'; prioTxt = '#B25E02'; prioBorder = '#FFE6A6';
+                                        } else if (ticket.puntos_complejidad >= 1) {
+                                            prio = 'P3'; prioLabel = 'P3'; prioDot = '#8E8E93'; prioBg = '#F2F2F7'; prioTxt = '#1C1C1E'; prioBorder = '#D1D1D6';
                                         }
 
                                         let estado = ticket.estado_actual || 'NUEVO';
@@ -497,13 +509,14 @@
 
                                         let opAsignado = ticket.asignado_a ? ticket.asignado_a.nombre : null;
                                         let opId = ticket.asignado_a_id || '';
+                                        let isAssigned = Boolean(opId) || estado === 'EN_PROGRESO' || estado === 'CERRADO' || estado === 'EN_ESPERA_TERCEROS';
                                         let area = ticket.area_designada || 'GENERAL';
                                         let cleanSubject = (ticket.asunto || '').replace(/'/g, "\\'");
                                     %>
-                                    <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F9F9FA] group transition-colors" data-area="<%= area %>" data-priority="<%= prio %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>">
+                                    <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F9F9FA] group transition-colors" data-area="<%= area %>" data-priority="<%= prio %>" data-assigned="<%= isAssigned %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>">
                                         <td class="py-2 px-3 align-middle text-center w-[40px]">
                                             <div class="flex items-center justify-center">
-                                                <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" onchange="TableSelectionManager.handleCheckboxChange(this)" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
+                                                <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" data-assigned="<%= isAssigned %>" <%= isAssigned ? 'disabled title="Ticket ya en asignación"' : '' %> onchange="TableSelectionManager.handleCheckboxChange(this)" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none <%= isAssigned ? 'opacity-30 cursor-not-allowed pointer-events-none bg-[#E5E5EA]' : 'cursor-pointer' %>">
                                             </div>
                                         </td>
                                         <td class="py-2 px-3 align-middle whitespace-nowrap">
@@ -513,9 +526,9 @@
                                             </div>
                                         </td>
                                         <td class="py-2 px-2.5 align-middle whitespace-nowrap">
-                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-medium border border-[#D1D1D6]" style="background-color: <%= prioBg %>; color: <%= prioTxt %>;">
+                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-medium border" style="background-color: <%= prioBg %>; color: <%= prioTxt %>; border-color: <%= prioBorder %>;">
                                                 <span class="w-1.5 h-1.5 rounded-full" style="background-color: <%= prioDot %>;"></span>
-                                                <%= prio %>
+                                                <%= prioLabel %>
                                             </span>
                                         </td>
                                         <td class="state-col py-2 px-2.5 align-middle whitespace-nowrap">
@@ -865,18 +878,19 @@
             const prioDot = document.getElementById('modalPriorityDot');
             const prioText = document.getElementById('modalPriorityText');
             const prioVal = document.getElementById('selectedPriorityValue');
-            if (p === 'P1') {
-                if (prioDot) prioDot.style.backgroundColor = '#FF3B30';
-                if (prioText) prioText.textContent = 'P1 - Crítico';
-                if (prioVal) prioVal.value = 'P1';
-            } else if (p === 'P2') {
+            if (p === 'P2') {
                 if (prioDot) prioDot.style.backgroundColor = '#FFBD2E';
                 if (prioText) prioText.textContent = 'P2 - Media';
                 if (prioVal) prioVal.value = 'P2';
-            } else {
+            } else if (p === 'P3') {
                 if (prioDot) prioDot.style.backgroundColor = '#8E8E93';
                 if (prioText) prioText.textContent = 'P3 - Normal';
                 if (prioVal) prioVal.value = 'P3';
+            } else {
+                // P1 por defecto (o si viene NONE / Sin Prioridad, sugerir P1 para asignación por el coordinador)
+                if (prioDot) prioDot.style.backgroundColor = '#FF3B30';
+                if (prioText) prioText.textContent = 'P1 - Crítico';
+                if (prioVal) prioVal.value = 'P1';
             }
 
             // Operador
@@ -1050,8 +1064,8 @@
                 const result = await response.json();
                 if (result.success) {
                     closeAssignModal();
-                    updateRowDisplay(currentTicketCode, null, false, '', 'GENERAL', 'P3');
-                    showNotification('Ticket Desasignado', `${currentTicketCode} devuelto a cola general`, 'NOC');
+                    updateRowDisplay(currentTicketCode, null, false, '', 'GENERAL', 'NONE');
+                    showNotification('Ticket Desasignado', `${currentTicketCode} devuelto a cola general sin prioridad`, 'NOC');
                     updateKPIStats();
                 }
             } catch (err) {
@@ -1063,6 +1077,32 @@
         function updateRowDisplay(ticketCode, operatorName, isAssigned, operatorId, area, prioridad) {
             const row = document.getElementById(`row-${ticketCode}`);
             if (!row) return;
+
+            // Actualizar estado de asignación en la fila y checkbox
+            row.setAttribute('data-assigned', isAssigned ? 'true' : 'false');
+            const cb = row.querySelector('.row-checkbox');
+            if (cb) {
+                if (isAssigned) {
+                    cb.checked = false;
+                    cb.disabled = true;
+                    cb.setAttribute('disabled', 'true');
+                    cb.setAttribute('data-assigned', 'true');
+                    cb.title = 'Ticket ya en asignación';
+                    cb.classList.add('opacity-30', 'cursor-not-allowed', 'pointer-events-none', 'bg-[#E5E5EA]');
+                    cb.classList.remove('cursor-pointer');
+                    row.classList.remove('bg-[#007AFF]/[0.08]', 'font-medium');
+                    if (typeof TableSelectionManager !== 'undefined') {
+                        TableSelectionManager.selectedCodes.delete(ticketCode);
+                    }
+                } else {
+                    cb.disabled = false;
+                    cb.removeAttribute('disabled');
+                    cb.setAttribute('data-assigned', 'false');
+                    cb.removeAttribute('title');
+                    cb.classList.remove('opacity-30', 'cursor-not-allowed', 'pointer-events-none', 'bg-[#E5E5EA]');
+                    cb.classList.add('cursor-pointer');
+                }
+            }
 
             const opCol = row.querySelector('.op-col .operator-label');
             const stateCol = row.querySelector('.state-col .status-text');
@@ -1092,15 +1132,23 @@
                     if (prioridad === 'P1') {
                         prioBadge.style.backgroundColor = '#FFE5E5';
                         prioBadge.style.color = '#D70015';
+                        prioBadge.style.borderColor = '#FFD0D0';
                         prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #FF3B30;"></span> P1';
                     } else if (prioridad === 'P2') {
                         prioBadge.style.backgroundColor = '#FFF4D6';
                         prioBadge.style.color = '#B25E02';
+                        prioBadge.style.borderColor = '#FFE6A6';
                         prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #FFBD2E;"></span> P2';
-                    } else {
+                    } else if (prioridad === 'P3') {
                         prioBadge.style.backgroundColor = '#F2F2F7';
                         prioBadge.style.color = '#1C1C1E';
+                        prioBadge.style.borderColor = '#D1D1D6';
                         prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #8E8E93;"></span> P3';
+                    } else {
+                        prioBadge.style.backgroundColor = '#F2F2F7';
+                        prioBadge.style.color = '#8E8E93';
+                        prioBadge.style.borderColor = '#E5E5EA';
+                        prioBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full" style="background-color: #C7C7CC;"></span> Sin Prioridad';
                     }
                 }
             }
@@ -1109,8 +1157,7 @@
                 row.setAttribute('data-area', area);
             }
 
-            // El botón de acción permanece siempre fijo como "Asignar"
-            const currentPrio = prioridad || row.getAttribute('data-priority') || 'P1';
+            const currentPrio = (prioridad && prioridad !== 'NONE') ? prioridad : 'P1';
             const cleanSubj = (row.querySelector('.truncate')?.getAttribute('title') || row.querySelector('.truncate')?.textContent || '').replace(/'/g, "\\'");
 
             if (actionBtn) {
@@ -1120,6 +1167,10 @@
 
             if (ticketLink) {
                 ticketLink.setAttribute('onclick', `openAssignModal('${ticketCode}', '${cleanSubj}', '${area || 'GENERAL'}', '${operatorId || ''}', '${operatorName || ''}', '${currentPrio}')`);
+            }
+
+            if (typeof TableSelectionManager !== 'undefined') {
+                TableSelectionManager.sync();
             }
         }
 
@@ -1309,7 +1360,8 @@
                         const row = e.target.closest('.ticket-row');
                         if (row) {
                             const cb = row.querySelector('.row-checkbox');
-                            if (cb) {
+                            // CONDICIÓN: No se pueden seleccionar tickets ya en asignación
+                            if (cb && !cb.disabled && cb.getAttribute('data-assigned') !== 'true') {
                                 cb.checked = !cb.checked;
                                 this.handleCheckboxChange(cb);
                             }
@@ -1329,6 +1381,12 @@
             },
 
             handleCheckboxChange(cb) {
+                // CONDICIÓN: No se pueden seleccionar tickets ya en asignación
+                if (cb.disabled || cb.getAttribute('data-assigned') === 'true') {
+                    cb.checked = false;
+                    return;
+                }
+
                 const code = cb.getAttribute('data-code');
                 if (!code) return;
 
@@ -1355,10 +1413,14 @@
             },
 
             toggleAll(selectAll) {
-                // Solo seleccionar las filas visibles (respetando filtros activos de área/prioridad/búsqueda)
-                const visibleRows = Array.from(document.querySelectorAll('.ticket-row')).filter(r => r.style.display !== 'none');
+                // CONDICIÓN: Solo seleccionar filas visibles Y que NO estén ya en asignación
+                const assignableRows = Array.from(document.querySelectorAll('.ticket-row')).filter(r => {
+                    if (r.style.display === 'none') return false;
+                    const cb = r.querySelector('.row-checkbox');
+                    return cb && !cb.disabled && cb.getAttribute('data-assigned') !== 'true';
+                });
                 
-                visibleRows.forEach(row => {
+                assignableRows.forEach(row => {
                     const cb = row.querySelector('.row-checkbox');
                     if (cb) {
                         cb.checked = selectAll;
@@ -1422,20 +1484,20 @@
                     }
                 }
 
-                // 3. Sincronizar estado del checkbox maestro (checked / indeterminate)
+                // 3. Sincronizar estado del checkbox maestro (checked / indeterminate) sobre tickets asignables
                 if (masterCheckbox) {
-                    const visibleCheckboxes = Array.from(document.querySelectorAll('.ticket-row'))
+                    const assignableCheckboxes = Array.from(document.querySelectorAll('.ticket-row'))
                         .filter(r => r.style.display !== 'none')
                         .map(r => r.querySelector('.row-checkbox'))
-                        .filter(Boolean);
+                        .filter(cb => cb && !cb.disabled && cb.getAttribute('data-assigned') !== 'true');
 
-                    const visibleCount = visibleCheckboxes.length;
-                    const checkedVisibleCount = visibleCheckboxes.filter(cb => cb.checked).length;
+                    const assignableCount = assignableCheckboxes.length;
+                    const checkedCount = assignableCheckboxes.filter(cb => cb.checked).length;
 
-                    if (visibleCount === 0 || checkedVisibleCount === 0) {
+                    if (assignableCount === 0 || checkedCount === 0) {
                         masterCheckbox.checked = false;
                         masterCheckbox.indeterminate = false;
-                    } else if (checkedVisibleCount === visibleCount) {
+                    } else if (checkedCount === assignableCount) {
                         masterCheckbox.checked = true;
                         masterCheckbox.indeterminate = false;
                     } else {
@@ -1450,9 +1512,13 @@
         function updateSelectionCount() {
             TableSelectionManager.selectedCodes.clear();
             document.querySelectorAll('.row-checkbox:checked').forEach(cb => {
-                const code = cb.getAttribute('data-code');
-                if (code) TableSelectionManager.selectedCodes.add(code);
-                TableSelectionManager.updateRowStyle(cb);
+                if (!cb.disabled && cb.getAttribute('data-assigned') !== 'true') {
+                    const code = cb.getAttribute('data-code');
+                    if (code) TableSelectionManager.selectedCodes.add(code);
+                    TableSelectionManager.updateRowStyle(cb);
+                } else {
+                    cb.checked = false;
+                }
             });
             TableSelectionManager.sync();
         }

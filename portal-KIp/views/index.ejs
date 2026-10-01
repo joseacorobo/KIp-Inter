@@ -4,14 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=1280, initial-scale=1.0" name="viewport">
-    <title>
-        <%= titulo %>
-    </title>
+    <title><%= titulo %></title>
+    
     <!-- Tailwind CSS v3 with Plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- macOS 27 Component Design System -->
+    <link rel="stylesheet" href="/css/macos27.css">
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -34,8 +35,7 @@
         }
     </script>
     <style>
-        html,
-        body {
+        html, body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -44,36 +44,8 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 9999px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.28);
-        }
-
-        .num-tabular {
-            font-variant-numeric: tabular-nums;
-        }
-
-        .finder-th+.finder-th {
+        .finder-th + .finder-th {
             border-left: 1px solid #E5E5EA;
-        }
-
-        .macos-focus-ring {
-            box-shadow: 0 0 0 3px rgba(0, 136, 255, 0.35);
-            border-color: #389BFF !important;
         }
     </style>
 </head>
@@ -83,754 +55,48 @@
     <!-- macOS Full Application Viewport -->
     <div class="relative w-full h-full flex flex-col overflow-hidden bg-white select-none">
 
-        <!-- BEGIN: macOS Unified Titlebar & Toolbar -->
-        <header
-            class="h-[56px] bg-white border-b border-[#E5E5EA] px-4 flex items-center justify-between select-none z-20 flex-shrink-0">
-            <div class="flex items-center gap-3">
-                <div class="flex items-center gap-3">
-                    <img alt="Logo Inter" class="h-[28px] w-auto object-contain"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtCf1kyA5Xv3ji8h2EifMIzU5ZiU3r5XlzhgnLFSjZns31wuEmyWwyxb7Ibp30TQgk1BU7IO9qFU5Ri9xtP1U6XPsTT3Ew2iMHnDiOmn4Y-IT_Fy4lZdLyfTzEBMnrxeUJ-S7GYU870d6-54QeqaoelnE_92ZTd36r0rRy5wwIyJJcT881mYSiNC15GTzaM5v_ZLKyzhMIEo-MMFCaNtJqZCR6YOc7FYA8AUcQvEfl_R03WH_n6yHU3a8zKevr3gppvw">
-                    <div class="h-5 w-[1px] bg-[#D1D1D6]"></div>
-                    <span class="text-[14px] font-semibold text-[#1C1C1E] tracking-tight">Operaciones IP</span>
-                </div>
-                <div
-                    class="ml-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F2F2F7] border border-[#D1D1D6] text-[11px] text-[#48484A] font-medium">
-                    <span class="w-2 h-2 rounded-full bg-[#34C759]"></span>
-                    <span>Turno A (07:00 - 15:00)</span>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <div
-                    class="relative flex items-center w-[130px] h-[32px] px-2 gap-1 bg-[#F5F5F7] border border-[#D1D1D6] rounded-[7px] transition focus-within:bg-white focus-within:border-[#007AFF]">
-                    <svg class="w-3.5 h-3.5 text-[#8E8E93] flex-shrink-0 pointer-events-none" fill="none"
-                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
-                    </svg>
-                    <input
-                        id="globalSearchInput"
-                        oninput="onSearchInput(this.value)"
-                        class="w-full min-w-0 bg-transparent text-[11px] text-[#1C1C1E] placeholder-[#8E8E93] focus:outline-none border-none p-0"
-                        placeholder="Buscar..." type="text">
-                    <span
-                        class="flex-shrink-0 px-1 py-0.5 text-[9px] font-mono text-[#8E8E93] bg-white border border-[#D1D1D6] rounded pointer-events-none font-medium">⌘K</span>
-                </div>
-                <button
-                    class="flex items-center gap-1.5 px-3 py-1.5 bg-[#007AFF] hover:bg-[#0062CC] text-white rounded-[7px] font-medium text-[12px] shadow-sm transition">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <line x1="12" x2="12" y1="5" y2="19"></line>
-                        <line x1="5" x2="19" y1="12" y2="12"></line>
-                    </svg>
-                    <span>Nuevo Incidente</span>
-                </button>
-                <div class="h-5 w-[1px] bg-[#D1D1D6] mx-0.5"></div>
-                <div
-                    class="flex items-center gap-2 px-2 py-1 rounded-[8px] hover:bg-[#F2F2F7] transition cursor-pointer border border-transparent hover:border-[#D1D1D6]">
-                    <div
-                        class="w-7 h-7 rounded-full bg-[#007AFF] text-white flex items-center justify-center font-mono font-semibold text-[11px]">
-                        CP</div>
-                    <div class="flex flex-col text-left">
-                        <span class="text-[11px] font-medium text-[#1C1C1E] leading-tight">Coord. NOC</span>
-                        <span class="text-[9px] font-mono font-bold text-[#34C759] tracking-wider leading-tight">● LÍDER
-                            ACTIVO</span>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <!-- Componente 1: Unified Titlebar & Toolbar -->
+        <%- include('components/macos27/titlebar') %>
 
         <!-- Main Body Workspace -->
         <div class="flex-1 flex overflow-hidden min-h-0 bg-[#F5F5F7]">
 
-            <!-- BEGIN: Finder-style macOS Sidebar -->
-            <aside
-                class="w-[200px] flex-shrink-0 bg-[#EBEBF0]/95 border-r border-[#D8D8DC] flex flex-col justify-between select-none py-3 px-2">
-                <div class="space-y-4">
-                    <div>
-                        <div class="px-2.5 pb-1.5 text-[10px] font-bold text-[#8E8E93] uppercase tracking-wider">
-                            Navegación</div>
-                        <nav class="space-y-0.5">
-                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] bg-black/5 text-[#007AFF] font-medium text-[12px] transition"
-                                href="#">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-[#007AFF]" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.5V6a3 3 0 0 1 3-3h15a3 3 0 0 1 3 3v4.5">
-                                        </path>
-                                    </svg>
-                                    <span>Dashboard General</span>
-                                </div>
-                                <span
-                                    class="font-mono text-[9px] bg-[#007AFF]/15 text-[#0062CC] px-1.5 py-0.5 rounded font-bold">
-                                    <%= ticketsActivos %>
-                                </span>
-                            </a>
-                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#3A3A3C] hover:bg-black/5 text-[12px] font-medium transition"
-                                href="#">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-[#8E8E93]" fill="none" stroke="currentColor"
-                                        stroke-width="2" viewBox="0 0 24 24">
-                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                    <span>Auditoría</span>
-                                </div>
-                            </a>
-                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#3A3A3C] hover:bg-black/5 text-[12px] font-medium transition"
-                                href="#">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-[#8E8E93]" fill="none" stroke="currentColor"
-                                        stroke-width="2" viewBox="0 0 24 24">
-                                        <path
-                                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                        </path>
-                                    </svg>
-                                    <span>Gestión de Turno</span>
-                                </div>
-                                <span
-                                    class="font-mono text-[9px] bg-[#34C759]/15 text-[#34C759] px-1.5 py-0.5 rounded font-bold">
-                                    <%= operadoresDisponibles %>/<%= totalOperadores %>
-                                </span>
-                            </a>
-                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#3A3A3C] hover:bg-black/5 text-[12px] font-medium transition"
-                                href="#">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-[#8E8E93]" fill="none" stroke="currentColor"
-                                        stroke-width="2" viewBox="0 0 24 24">
-                                        <path
-                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                                        </path>
-                                    </svg>
-                                    <span>Reportes</span>
-                                </div>
-                            </a>
-                        </nav>
-                    </div>
-                </div>
+            <!-- Componente 2: Finder-style macOS Sidebar -->
+            <%- include('components/macos27/sidebar') %>
 
-                <!-- Sidebar Bottom Footer -->
-                <div class="p-2.5 rounded-[8px] bg-white/70 border border-black/5 shadow-xs space-y-1">
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="flex items-center gap-1.5 font-medium text-[#1C1C1E]"><span
-                                class="w-2 h-2 rounded-full bg-[#34C759]"></span>Servidor NOC</span>
-                        <span class="font-mono text-[10px] text-[#34C759] font-bold">18ms</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[10px] text-[#8E8E93] font-mono">
-                        <span>Sincronía OLT</span>
-                        <span class="text-[#3A3A3C]">Activo (0s)</span>
-                    </div>
-                </div>
-            </aside>
-            <!-- END: Sidebar -->
+            <!-- Content Main Area -->
+            <main class="flex-1 flex flex-col min-w-0 bg-white overflow-hidden p-3.5 gap-3">
 
-            <!-- BEGIN: Content Main Area -->
-            <main class="flex-1 flex flex-col min-w-0 bg-white overflow-hidden p-4 gap-3">
+                <!-- Componente 3: macOS 27 Liquid Glass KPI Cards -->
+                <%- include('components/macos27/kpi-cards') %>
 
-                <!-- BEGIN: KPI Cards / macOS Widget Panels -->
-                <section class="grid grid-cols-4 gap-3 flex-shrink-0" data-purpose="kpi-cards">
-                    <!-- Card 1: Tickets Activos -->
-                    <div
-                        class="bg-white border border-[#E5E5EA] rounded-[12px] p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06)] transition">
-                        <div class="flex items-start justify-between">
-                            <span
-                                class="text-[11px] font-semibold text-[#8E8E93] uppercase tracking-wider leading-tight">TICKETS
-                                ACTIVOS</span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#8E8E93] mt-0.5"></span>
-                        </div>
-                        <div class="mt-2 text-[32px] font-semibold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none"
-                            id="kpi-active">
-                            <%= ticketsActivos %>
-                        </div>
-                    </div>
+                <!-- Componente 4: Finder List View Table -->
+                <%- include('components/macos27/finder-table') %>
 
-                    <!-- Card 2: Tickets Realizados -->
-                    <div
-                        class="bg-white border border-[#E5E5EA] rounded-[12px] p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06)] transition">
-                        <div class="flex items-start justify-between">
-                            <span
-                                class="text-[11px] font-semibold text-[#8E8E93] uppercase tracking-wider leading-tight">TICKETS<br>REALIZADOS</span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#8E8E93] mt-0.5"></span>
-                        </div>
-                        <div class="mt-2 text-[32px] font-semibold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none"
-                            id="kpi-done">
-                            <%= ticketsRealizados %>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Críticos Sin Asignar -->
-                    <div
-                        class="bg-white border border-[#E5E5EA] rounded-[12px] p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06)] transition">
-                        <div class="flex items-start justify-between">
-                            <span
-                                class="text-[11px] font-semibold text-[#8E8E93] uppercase tracking-wider leading-tight">CRÍTICOS
-                                SIN<br>ASIGNAR</span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#FF3B30] mt-0.5"></span>
-                        </div>
-                        <div class="mt-2 text-[32px] font-semibold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none"
-                            id="kpi-critical">
-                            <%= criticosSinAsignar %>
-                        </div>
-                    </div>
-
-                    <!-- Card 4: Operadores Disponibles -->
-                    <div
-                        class="bg-white border border-[#E5E5EA] rounded-[12px] p-4 flex flex-col justify-between shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.06)] transition">
-                        <div class="flex items-start justify-between">
-                            <span
-                                class="text-[11px] font-semibold text-[#8E8E93] uppercase tracking-wider leading-tight">OPERADORES
-                                DISPONIBLES</span>
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#34C759] mt-0.5"></span>
-                        </div>
-                        <div class="mt-2 flex items-center justify-between">
-                            <div class="flex items-baseline gap-1.5">
-                                <span id="kpi-operators"
-                                    class="text-[32px] font-semibold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none">
-                                    <%= operadoresDisponibles %>
-                                </span>
-                                <span class="text-xs font-mono text-[#8E8E93] font-medium leading-none">/ <%= totalOperadores %> activos</span>
-                            </div>
-                            <div
-                                class="w-8 h-8 rounded-[8px] bg-[#F2F2F7] border border-[#E5E5EA] flex items-center justify-center text-[#636366]">
-                                <svg class="w-4 h-4 text-[#636366]" fill="none" stroke="currentColor" stroke-width="1.8"
-                                    viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- END: KPI Cards -->
-
-                <!-- BEGIN: macOS Finder List View Table Container -->
-                <section
-                    class="flex-1 bg-white border border-[#E5E5EA] rounded-[12px] flex flex-col min-h-0 overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.04)]"
-                    data-purpose="incident-queue">
-                    <!-- Table Header Filter Bar -->
-                    <div
-                        class="px-3 py-2 bg-[#F6F6F8] border-b border-[#E5E5EA] flex items-center justify-between flex-shrink-0 relative z-20 overflow-visible">
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center gap-1.5 text-xs font-semibold text-[#1C1C1E] pr-2">
-                                <span>Resumen Operativo</span>
-                            </div>
-                            <div class="h-4 w-[1px] bg-[#D1D1D6]"></div>
-                            
-                            <!-- Área Dropdown -->
-                            <div class="flex items-center gap-1.5">
-                                <span class="text-[11px] text-[#8E8E93] font-medium">Área:</span>
-                                <details id="filterAreaDropdown" class="relative group select-none z-30">
-                                    <summary
-                                        class="list-none flex items-center justify-between gap-2 h-[24px] pl-2 pr-1 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] rounded-[6px] border border-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04)] cursor-pointer text-[12px] font-medium text-[#1C1C1E] transition focus:outline-none">
-                                        <span id="filterAreaText"
-                                            class="truncate text-[12px] leading-none font-medium text-[#1C1C1E]/90">General</span>
-                                        <span
-                                            class="flex items-center justify-center w-[16px] h-[16px] rounded-[4px] bg-black/5 text-[#636366]"><svg
-                                                class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M6 9l6 6 6-6"></path>
-                                            </svg></span>
-                                    </summary>
-                                    <div
-                                        class="absolute left-0 top-[28px] w-[160px] bg-white rounded-[8px] border border-[#D1D1D6] shadow-[0_8px_20px_rgba(0,0,0,0.12)] p-1 z-30 space-y-0.5 text-[12px]">
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] bg-[#007AFF] text-white font-medium cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('ALL', 'General', this)">
-                                            <span class="truncate">General</span>
-                                            <svg class="check-icon w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('REDES_FTTH', 'Redes FTTH', this)">
-                                            <span class="truncate">Redes FTTH</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('WAN', 'WAN', this)">
-                                            <span class="truncate">WAN</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('GRANDES_CLIENTES', 'Grandes Clientes', this)">
-                                            <span class="truncate">Grandes Clientes</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('TELEFONIA', 'Telefonía', this)">
-                                            <span class="truncate">Telefonía</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('SEGURIDAD', 'Seguridad', this)">
-                                            <span class="truncate">Seguridad</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByArea('TRAFICO_INALAMBRICO', 'Tráfico', this)">
-                                            <span class="truncate">Tráfico</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                    </div>
-                                </details>
-                            </div>
-
-                            <!-- Filtrar por: Fecha y Prioridad -->
-                            <div class="flex items-center gap-1.5 ml-1">
-                                <span class="text-[11px] text-[#8E8E93] font-medium leading-none">Filtrar por:</span>
-                                <button id="filterDateBtn" onclick="toggleSortDate()"
-                                    class="flex items-center gap-1 h-[24px] px-2 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] rounded-[6px] border border-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-[12px] font-medium text-[#1C1C1E] transition focus:outline-none cursor-pointer"
-                                    title="Ordenar por Fecha">
-                                    <svg class="w-3 h-3 text-[#636366] flex-shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
-                                        <rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
-                                        <line x1="16" x2="16" y1="2" y2="6"></line>
-                                        <line x1="8" x2="8" y1="2" y2="6"></line>
-                                        <line x1="3" x2="21" y1="10" y2="10"></line>
-                                    </svg>
-                                    <span class="leading-none">Fecha</span>
-                                    <span id="dateSortIndicator" class="text-[9px] text-[#8E8E93] leading-none">▼</span>
-                                </button>
-                                <details id="filterPriorityDropdown" class="relative group select-none z-30">
-                                    <summary
-                                        class="list-none flex items-center h-[24px] pl-2 pr-1 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] rounded-[6px] border border-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04)] gap-1.5 cursor-pointer transition select-none">
-                                        <span id="filterPriorityText"
-                                            class="text-[12px] font-medium text-[#1C1C1E] leading-none">Prioridad</span>
-                                        <span
-                                            class="flex items-center justify-center w-[16px] h-[16px] rounded-[4px] bg-black/5 text-[#636366]"><svg
-                                                class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2"
-                                                viewBox="0 0 24 24">
-                                                <path d="M7 15l5 5 5-5M7 9l5-5 5 5"></path>
-                                            </svg></span>
-                                    </summary>
-                                    <div
-                                        class="absolute left-0 top-[28px] w-[140px] bg-white rounded-[8px] border border-[#D1D1D6] shadow-[0_8px_20px_rgba(0,0,0,0.12)] p-1 z-30 space-y-0.5 text-[12px]">
-                                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] bg-[#007AFF] text-white font-medium cursor-pointer"
-                                            onclick="event.preventDefault();filterByPriority('ALL', 'Prioridad', this)">
-                                            <span>Todas</span>
-                                            <svg class="check-icon w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByPriority('P1', 'P1 (Crítica)', this)">
-                                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#FF3B30]"></span>P1 (Crítica)</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByPriority('P2', 'P2 (Media)', this)">
-                                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></span>P2 (Media)</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                            onclick="event.preventDefault();filterByPriority('P3', 'P3 (Baja)', this)">
-                                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#8E8E93]"></span>P3 (Baja)</span>
-                                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                        </a>
-                                    </div>
-                                </details>
-                            </div>
-                        </div>
-
-                        <!-- Right: Bulk Selection & Action Button -->
-                        <div class="flex items-center gap-3 text-xs text-[#8E8E93]">
-                            <div class="flex items-center gap-2">
-                                <span class="text-[11px]">Seleccionados: <strong id="selectionBadgeCount"
-                                        class="text-[#007AFF] font-mono font-semibold">0</strong></span>
-                                <button id="batchAssignBtn" onclick="openBatchAssignModal()"
-                                    class="flex items-center gap-1.5 h-[24px] px-2.5 bg-[#007AFF] hover:bg-[#0062CC] text-white rounded-[6px] text-[11px] font-medium shadow-xs transition select-none disabled:opacity-40 disabled:pointer-events-none"
-                                    disabled>
-                                    <span id="batchAssignBtnText" class="leading-none">Asignar Tickets</span>
-                                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        viewBox="0 0 24 24">
-                                        <path d="M6 9l6 6 6-6"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Finder Native List Table -->
-                    <div class="flex-1 overflow-y-auto overflow-x-hidden min-h-0 bg-white">
-                        <table class="w-full text-left border-collapse table-fixed min-w-[950px]">
-                            <thead
-                                class="sticky top-0 bg-[#F9F9FA] text-[11px] font-medium text-[#8E8E93] border-b border-[#E5E5EA] z-10 shadow-xs">
-                                <tr>
-                                    <th class="finder-th py-2 px-3 w-[40px] text-center">
-                                        <div class="flex items-center justify-center"><input id="selectAllCheckbox"
-                                                onchange="toggleSelectAll(this)" type="checkbox"
-                                                class="w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
-                                        </div>
-                                    </th>
-                                    <th class="finder-th py-2 px-3 w-[115px] font-semibold text-[#48484A]">Ticket</th>
-                                    <th class="finder-th py-2 px-2.5 w-[85px] font-semibold text-[#48484A]">Prioridad
-                                    </th>
-                                    <th class="finder-th py-2 px-2.5 w-[110px] font-semibold text-[#48484A]">Estado</th>
-                                    <th class="finder-th py-2 px-3 font-semibold text-[#48484A]">Asunto</th>
-                                    <th class="finder-th py-2 px-2.5 w-[150px] font-semibold text-[#48484A]">OP /
-                                        Asignado</th>
-                                    <th
-                                        class="finder-th py-2 px-2.5 w-[110px] text-center font-semibold text-[#48484A]">
-                                        Tiempo</th>
-                                    <th class="finder-th py-2 px-3 w-[95px] text-right font-semibold text-[#48484A]">
-                                        Acción</th>
-                                </tr>
-                            </thead>
-                            <tbody id="ticketTableBody" class="divide-y divide-[#EBEBF0] text-[12px] font-normal">
-                                <% if (tickets && tickets.length > 0) { %>
-                                    <% tickets.forEach(function(ticket) { 
-                                        let prio = 'P3';
-                                        let prioDot = '#8E8E93'; let prioBg = '#F2F2F7'; let prioTxt = '#1C1C1E';
-                                        if (ticket.puntos_complejidad >= 8) {
-                                            prio = 'P1'; prioDot = '#FF3B30'; prioBg = '#FFE5E5'; prioTxt = '#D70015';
-                                        } else if (ticket.puntos_complejidad >= 5) {
-                                            prio = 'P2'; prioDot = '#FFBD2E'; prioBg = '#FFF4D6'; prioTxt = '#B25E02';
-                                        }
-
-                                        let estado = ticket.estado_actual || 'NUEVO';
-                                        let stateBg = 'rgba(100, 116, 139, 0.1)'; let stateColor = 'rgb(30, 41, 59)';
-                                        let stateBorder = 'rgba(100, 116, 139, 0.2)'; let stateDot = '#64748b';
-                                        let estadoLabel = 'Nuevo';
-
-                                        if (estado === 'EN_PROGRESO') {
-                                            stateBg = 'rgba(2, 132, 199, 0.1)'; stateColor = 'rgb(12, 74, 110)'; stateBorder = 'rgba(2, 132, 199, 0.2)'; stateDot = '#0284c7'; estadoLabel = 'En Progreso';
-                                        } else if (estado === 'EN_ESPERA_TERCEROS') {
-                                            stateBg = 'rgba(245, 158, 11, 0.1)'; stateColor = 'rgb(146, 64, 14)'; stateBorder = 'rgba(245, 158, 11, 0.2)'; stateDot = '#f59e0b'; estadoLabel = 'En Espera';
-                                        } else if (estado === 'CERRADO') {
-                                            stateBg = 'rgba(34, 197, 94, 0.1)'; stateColor = 'rgb(20, 83, 45)'; stateBorder = 'rgba(34, 197, 94, 0.2)'; stateDot = '#22c55e'; estadoLabel = 'Cerrado';
-                                        }
-
-                                        let opAsignado = ticket.asignado_a ? ticket.asignado_a.nombre : null;
-                                        let opId = ticket.asignado_a_id || '';
-                                        let area = ticket.area_designada || 'GENERAL';
-                                        let cleanSubject = (ticket.asunto || '').replace(/'/g, "\\'");
-                                    %>
-                                    <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F9F9FA] group transition-colors" data-area="<%= area %>" data-priority="<%= prio %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>">
-                                        <td class="py-2 px-3 align-middle text-center w-[40px]">
-                                            <div class="flex items-center justify-center">
-                                                <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" onchange="updateSelectionCount()" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
-                                            </div>
-                                        </td>
-                                        <td class="py-2 px-3 align-middle whitespace-nowrap">
-                                            <div class="flex items-center gap-1.5">
-                                                <svg class="w-3.5 h-3.5 text-[#8E8E93] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                                                <a class="font-mono font-medium text-[#1C1C1E] hover:underline cursor-pointer" onclick="openAssignModal('<%= ticket.codigo_incidencia %>', '<%= cleanSubject %>', '<%= area %>', '<%= opId %>', '<%= opAsignado || '' %>', '<%= prio %>')"><%= ticket.codigo_incidencia %></a>
-                                            </div>
-                                        </td>
-                                        <td class="py-2 px-2.5 align-middle whitespace-nowrap">
-                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-medium border border-[#D1D1D6]" style="background-color: <%= prioBg %>; color: <%= prioTxt %>;">
-                                                <span class="w-1.5 h-1.5 rounded-full" style="background-color: <%= prioDot %>;"></span>
-                                                <%= prio %>
-                                            </span>
-                                        </td>
-                                        <td class="state-col py-2 px-2.5 align-middle whitespace-nowrap">
-                                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] text-[11px] font-medium" style="background-color: <%= stateBg %>; color: <%= stateColor %>; border: 1px solid <%= stateBorder %>;">
-                                                <span class="w-1.5 h-1.5 rounded-full" style="background-color: <%= stateDot %>;"></span>
-                                                <span class="status-text"><%= estadoLabel %></span>
-                                            </span>
-                                        </td>
-                                        <td class="py-2 px-3 align-middle truncate font-normal text-[#1C1C1E]" title="<%= ticket.asunto %>"><%= ticket.asunto %></td>
-                                        <td class="op-col py-2 px-2.5 align-middle whitespace-nowrap text-[#1C1C1E] font-medium text-[11px]">
-                                            <span class="operator-label <%= !opAsignado ? 'italic text-[#8E8E93]' : 'font-semibold text-[#007AFF]' %>"><%= opAsignado || '— Sin asignar' %></span>
-                                        </td>
-                                        <td class="time-col py-2 px-2.5 align-middle text-center">
-                                            <span class="inline-block font-mono text-[11px] text-[#48484A] bg-[#F2F2F7] border border-[#E5E5EA] px-2 py-0.5 rounded-[4px]">1 min esp.</span>
-                                        </td>
-                                        <td class="action-col py-2 px-3 align-middle text-right">
-                                            <button onclick="openAssignModal('<%= ticket.codigo_incidencia %>', '<%= cleanSubject %>', '<%= area %>', '<%= opId %>', '<%= opAsignado || '' %>', '<%= prio %>')" class="bg-white hover:bg-[#F2F2F7] active:bg-[#E5E5EA] border border-[#D1D1D6] text-[#1C1C1E] text-[11px] font-medium px-2.5 py-1 rounded-[6px] shadow-xs transition cursor-pointer">
-                                                Asignar
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <% }); %>
-                                <% } else { %>
-                                    <tr>
-                                        <td colspan="8" class="text-center py-6 text-[#8E8E93]">No hay incidencias activas en este momento.</td>
-                                    </tr>
-                                <% } %>
-                                <tr id="noFilterMatchRow" class="hidden">
-                                    <td colspan="8" class="text-center py-6 text-[#8E8E93]">No hay incidencias que coincidan con los filtros seleccionados.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- BEGIN: macOS Finder Bottom Status & Action Bar -->
-                    <div
-                        class="px-4 py-2.5 bg-[#F6F6F8] border-t border-[#E5E5EA] flex items-center justify-between flex-shrink-0 text-xs">
-                        <div class="flex items-center gap-2">
-                            <button
-                                class="px-3 py-1 bg-white hover:bg-[#F2F2F7] border border-[#D1D1D6] rounded-[7px] font-medium text-[11px] shadow-xs transition cursor-pointer">Nueva
-                                Carpeta</button>
-                            <div class="h-4 w-[1px] bg-[#D1D1D6] mx-1"></div>
-                            <span class="text-[#8E8E93] text-[11px]">Mostrando <strong id="activeTicketsCounter" class="text-[#1C1C1E] font-mono">
-                                    <%= tickets ? tickets.length : 0 %>
-                                </strong> casos activos</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center rounded-[6px] border border-[#D1D1D6] bg-white p-0.5 mr-2">
-                                <button class="px-2 py-0.5 text-[#8E8E93] disabled:opacity-40" disabled>‹</button>
-                                <span
-                                    class="px-2 py-0.5 bg-[#007AFF] text-white font-mono font-semibold rounded-[4px] text-[11px]">1</span>
-                                <button class="px-2 py-0.5 text-[#3A3A3C] hover:text-black cursor-pointer">›</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- END: Finder List Table Container -->
             </main>
-            <!-- END: Content Main Area -->
         </div>
 
-        <!-- ==================================================================== -->
-        <!-- BEGIN: Modal Sheet "CONFIG DE ASIGNACION" (Diseño Nativo Stitch macOS) -->
-        <!-- ==================================================================== -->
-        <div id="assignModalOverlay"
-            class="absolute inset-0 bg-black/30 backdrop-blur-[3px] z-50 items-center justify-center transition-opacity duration-200 opacity-0 pointer-events-none hidden"
-            onclick="handleBackdropClick(event)">
-            <!-- Modal Window Card View (410px width, rounded-[22px], white background) -->
-            <div id="assignModalCard"
-                class="w-[410px] bg-white rounded-[22px] border border-[#E5E5EA] shadow-[0_24px_60px_rgba(0,0,0,0.18)] p-7 flex flex-col gap-5 transform transition-all duration-200 select-none scale-95 opacity-0">
-                <!-- Title and Subtitle -->
-                <div class="text-center pt-0.5">
-                    <h3 class="text-[15px] font-bold text-[#1C1C1E] tracking-normal uppercase leading-tight font-sans">
-                        CONFIGURACION DE ASIGNACION
-                    </h3>
-                    <p class="text-[12px] text-[#8E8E93] leading-snug mt-1.5 px-3 font-normal">
-                        describe las indicaciones y al operador que deseas que realice la asignacion
-                    </p>
-                </div>
+        <!-- Componente 5: Modal Sheet de Asignación -->
+        <%- include('components/macos27/assign-modal') %>
 
-                <!-- Form Fields Container -->
-                <div class="space-y-3 pt-1">
-                    <!-- Ticket Code -->
-                    <div class="flex items-center">
-                        <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Ticket:</label>
-                        <div class="flex-1">
-                            <input id="modalTicketInput"
-                                class="w-full h-[36px] px-3.5 bg-[#EDEDF0] rounded-[10px] text-[13px] font-mono font-medium text-[#1C1C1E] border border-black/5 focus:outline-none select-none transition cursor-default"
-                                readonly tabindex="-1" type="text" value="#INC-00000">
-                        </div>
-                    </div>
+        <!-- Componente 6: Modal Sheet de Nuevo Incidente -->
+        <%- include('components/macos27/new-incident-modal') %>
 
-                    <!-- Asunto -->
-                    <div class="flex items-center">
-                        <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Asunto:</label>
-                        <div class="flex-1 flex items-center gap-2">
-                            <input id="modalSubjectInput"
-                                class="flex-1 h-[36px] px-3.5 bg-[#EDEDF0] rounded-[10px] text-[12px] text-[#48484A] font-normal border border-black/5 focus:outline-none select-none transition cursor-default truncate"
-                                readonly tabindex="-1" type="text" value="...">
-                            <button
-                                class="w-[36px] h-[36px] flex items-center justify-center bg-white hover:bg-[#F2F2F7] active:bg-[#E5E5EA] border border-[#D1D1D6] rounded-[10px] text-[#636366] hover:text-[#1C1C1E] shadow-xs transition flex-shrink-0 cursor-pointer"
-                                title="Ver detalles del ticket" type="button" onclick="showTicketSubjectAlert()">
-                                <svg class="w-4 h-4 text-[#636366]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Área Dropdown -->
-                    <div class="flex items-center relative z-40">
-                        <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Área:</label>
-                        <div class="flex-1 relative">
-                            <input type="hidden" id="selectedAreaValue" value="REDES_FTTH">
-                            <details id="modalAreaDropdown" class="relative group select-none z-40">
-                                <summary
-                                    class="list-none flex items-center justify-between w-full h-[36px] pl-3.5 pr-2 bg-white hover:bg-[#FAFAFC] active:bg-[#F2F2F7] rounded-[10px] border border-[#D1D1D6] shadow-xs cursor-pointer text-[13px] font-medium text-[#1C1C1E] transition focus:outline-none">
-                                    <span class="truncate text-[13px] leading-none font-medium text-[#1C1C1E]"
-                                        id="modalAreaText">Redes FTTH</span>
-                                    <span
-                                        class="flex items-center justify-center w-[20px] h-[20px] rounded-[6px] bg-[#F2F2F7] text-[#8E8E93]">
-                                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                            <path d="M6 9l6 6 6-6"></path>
-                                        </svg>
-                                    </span>
-                                </summary>
-                                <div
-                                    class="absolute left-0 top-[40px] w-full bg-white rounded-[12px] border border-[#D1D1D6] shadow-[0_10px_25px_rgba(0,0,0,0.12)] p-1 z-50 space-y-0.5 text-[12px]">
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('REDES_FTTH', 'Redes FTTH');">
-                                        <span class="truncate">Redes FTTH</span>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('GENERAL', 'Operaciones IP (General)');">
-                                        <span class="truncate">Operaciones IP (General)</span>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('WAN', 'WAN');">
-                                        <span class="truncate">WAN</span>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('GRANDES_CLIENTES', 'Grandes Clientes');">
-                                        <span class="truncate">Grandes Clientes</span>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('TELEFONIA', 'Telefonía');">
-                                        <span class="truncate">Telefonía</span>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('SEGURIDAD', 'Seguridad');">
-                                        <span class="truncate">Seguridad</span>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalArea('TRAFICO_INALAMBRICO', 'Tráfico');">
-                                        <span class="truncate">Tráfico</span>
-                                    </a>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-
-                    <!-- Prioridad Dropdown -->
-                    <div class="flex items-center relative z-30">
-                        <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Prioridad:</label>
-                        <div class="flex-1 relative">
-                            <input type="hidden" id="selectedPriorityValue" value="P1">
-                            <details id="modalPriorityDropdown" class="relative group select-none z-30">
-                                <summary
-                                    class="list-none flex items-center justify-between w-full h-[36px] pl-3.5 pr-2 bg-white hover:bg-[#FAFAFC] active:bg-[#F2F2F7] rounded-[10px] border border-[#D1D1D6] shadow-xs cursor-pointer text-[13px] font-medium text-[#1C1C1E] transition focus:outline-none">
-                                    <div class="flex items-center gap-2">
-                                        <span id="modalPriorityDot" class="w-2 h-2 rounded-full bg-[#FF3B30]"></span>
-                                        <span id="modalPriorityText" class="text-[13px] font-medium text-[#1C1C1E]">P1 - Crítico</span>
-                                    </div>
-                                    <span
-                                        class="flex items-center justify-center w-[20px] h-[20px] rounded-[6px] bg-[#F2F2F7] text-[#8E8E93]">
-                                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                            <path d="M6 9l6 6 6-6"></path>
-                                        </svg>
-                                    </span>
-                                </summary>
-                                <div
-                                    class="absolute left-0 top-[40px] w-full bg-white rounded-[12px] border border-[#D1D1D6] shadow-[0_10px_25px_rgba(0,0,0,0.12)] p-1 z-50 space-y-0.5 text-[12px]">
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalPriority('P1', 'P1 - Crítico', '#FF3B30');">
-                                        <div class="flex items-center gap-2">
-                                            <span class="w-2 h-2 rounded-full bg-[#FF3B30]"></span>
-                                            <span>P1 - Crítico</span>
-                                        </div>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalPriority('P2', 'P2 - Media', '#FFBD2E');">
-                                        <div class="flex items-center gap-2">
-                                            <span class="w-2 h-2 rounded-full bg-[#FFBD2E]"></span>
-                                            <span>P2 - Media</span>
-                                        </div>
-                                    </a>
-                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
-                                        onclick="event.preventDefault();setModalPriority('P3', 'P3 - Normal', '#8E8E93');">
-                                        <div class="flex items-center gap-2">
-                                            <span class="w-2 h-2 rounded-full bg-[#8E8E93]"></span>
-                                            <span>P3 - Normal</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-
-                    <!-- Operador Dropdown -->
-                    <div class="flex items-center relative z-20">
-                        <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Operador:</label>
-                        <div class="flex-1 relative">
-                            <input type="hidden" id="selectedOperatorId" value="">
-                            <details id="modalOperatorDropdown" class="relative group select-none z-20">
-                                <summary
-                                    class="list-none flex items-center justify-between w-full h-[36px] pl-3.5 pr-2 bg-white hover:bg-[#FAFAFC] active:bg-[#F2F2F7] rounded-[10px] border border-[#D1D1D6] shadow-xs cursor-pointer text-[13px] font-medium text-[#1C1C1E] transition focus:outline-none">
-                                    <span class="truncate text-[13px] leading-none font-medium text-[#1C1C1E]"
-                                        id="modalOperatorText">Andrea Silva - Fibra</span>
-                                    <span
-                                        class="flex items-center justify-center w-[20px] h-[20px] rounded-[6px] bg-[#F2F2F7] text-[#8E8E93]">
-                                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                            <path d="M6 9l6 6 6-6"></path>
-                                        </svg>
-                                    </span>
-                                </summary>
-                                <div
-                                    class="absolute left-0 top-[40px] w-full bg-white rounded-[12px] border border-[#D1D1D6] shadow-[0_10px_25px_rgba(0,0,0,0.12)] p-1 z-40 space-y-0.5 text-[12px] max-h-[170px] overflow-y-auto">
-                                    <% if (operadores && operadores.length > 0) { %>
-                                        <% operadores.forEach(function(op) { 
-                                            let parts = op.nombre.split(' ');
-                                            let inits = parts.length > 1 ? (parts[0][0] + parts[1][0]).toUpperCase() : op.nombre.substring(0, 2).toUpperCase();
-                                        %>
-                                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();setModalOperator('<%= op.id %>', '<%= op.nombre %>', '<%= inits %>');">
-                                                <span class="truncate"><%= op.nombre %></span>
-                                                <span class="font-mono text-[10px] text-[#8E8E93] group-hover:text-white"><%= inits %></span>
-                                            </a>
-                                        <% }); %>
-                                    <% } else { %>
-                                        <div class="px-2.5 py-1.5 text-[11px] text-[#8E8E93] italic">No hay operadores registrados</div>
-                                    <% } %>
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Actions Toolbar -->
-                <div class="flex items-center justify-between pt-3 mt-1">
-                    <button id="modalUnassignBtn"
-                        class="h-[34px] px-4 bg-[#FEE2E2] hover:bg-[#FECACA] active:bg-[#FCA5A5] text-[#EF4444] text-[13px] font-medium rounded-[10px] flex items-center justify-center transition cursor-pointer select-none"
-                        onclick="unassignCurrentTicket()" type="button">
-                        Delete
-                    </button>
-                    <div class="flex items-center gap-2.5">
-                        <button
-                            class="h-[34px] px-4 bg-[#E5E5EA] hover:bg-[#DCDCE0] active:bg-[#D1D1D6] text-[#3A3A3C] text-[13px] font-medium rounded-[10px] flex items-center justify-center transition cursor-pointer select-none"
-                            onclick="closeAssignModal()" type="button">
-                            Cancelar
-                        </button>
-                        <button
-                            class="h-[34px] px-5 bg-[#007AFF] hover:bg-[#006DE6] active:bg-[#0062CC] text-white text-[13px] font-medium rounded-[10px] flex items-center justify-center shadow-xs transition cursor-pointer select-none"
-                            onclick="saveAssignModal()" type="button">
-                            Guardar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END: Modal Sheet -->
-
-        <!-- ==================================================================== -->
-        <!-- BEGIN: macOS Liquid Glass Notification Toast (Diseño Nativo Stitch) -->
-        <!-- ==================================================================== -->
-        <div id="liquidGlassNotification"
-            style="width: 344px; height: 77px; display: flex; flex-direction: row; align-items: flex-start; padding: 12px 14px 12px 10px; gap: 8px; isolation: isolate; position: absolute; top: 20px; right: 20px; z-index: 9999; border-radius: 20px; background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.5)), rgba(240, 240, 245, 0.7); box-shadow: rgb(219, 219, 219) 1.25px 0px 0px -0.75px, rgb(219, 219, 219) -1.25px 0px 0px -0.75px, rgb(219, 219, 219) 0px 0px 0px 0.5px, rgba(0, 0, 0, 0.18) 0px 8px 48px, rgba(40, 40, 40, 0.08) 0px 40px 5px -40px inset, rgba(40, 40, 40, 0.08) 0px -40px 5px -40px inset; backdrop-filter: blur(28px); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s;"
-            class="select-none cursor-pointer opacity-0 pointer-events-none translate-y-[-10px]"
-            onclick="hideNotification()">
-            <div
-                style="width: 40px; height: 53px; display: flex; align-items: center; justify-content: center; padding: 0 4px; flex-shrink: 0;">
-                <div
-                    style="width: 32px; height: 32px; border-radius: 10px; background: #34C759; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(52,199,89,0.35);">
-                    <svg style="width: 18px; height: 18px; color: #FFFFFF; stroke-width: 2.8; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round;"
-                        viewBox="0 0 24 24">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                </div>
-            </div>
-            <div
-                style="width: 232px; height: 53px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; z-index: 2;">
-                <span id="notifTitleText"
-                    style="font-weight: 700; font-size: 13px; line-height: 16px; letter-spacing: -0.02em; color: #1A1A1A;">Nueva
-                    Asignación</span>
-                <span id="notifDescriptionText"
-                    style="font-weight: 400; font-size: 13px; line-height: 16px; letter-spacing: -0.008em; color: #1A1A1A; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 228px;">se
-                    asignó correctamente</span>
-            </div>
-            <div
-                style="width: 32px; height: 53px; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 7px; z-index: 3; flex-shrink: 0;">
-                <span style="font-size: 11px; line-height: 14px; text-align: right; color: #8E8E93;">Ahora</span>
-                <div id="notifAvatarBadge"
-                    style="width: 28px; height: 28px; border-radius: 8px; background: #007AFF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; box-shadow: 0 1px 3px rgba(0,122,255,0.3);">
-                    CM</div>
-            </div>
-        </div>
+        <!-- Componente 7: Notificación Toast Liquid Glass -->
+        <%- include('components/macos27/liquid-notification') %>
 
     </div>
     <!-- END: macOS Window Frame -->
 
-    <!-- Interactive Client Script -->
+    <!-- Interactive Client Scripts & Controller -->
     <script>
         let currentTicketCode = '';
         let currentOperatorInitials = 'CM';
         let notifTimeout = null;
 
-        // Abrir Modal de Asignación con datos del ticket
+        // ==========================================
+        // 1. Control del Modal de Asignación
+        // ==========================================
         function openAssignModal(ticketCode, subject, area, operatorId, operatorName, priority) {
             currentTicketCode = ticketCode;
             const overlay = document.getElementById('assignModalOverlay');
@@ -846,7 +112,6 @@
             if (ticketInput) ticketInput.value = ticketCode || '#INC-00000';
             if (subjectInput) subjectInput.value = subject || '';
 
-            // Área
             const areaLabels = {
                 'REDES_FTTH': 'Redes FTTH',
                 'GENERAL': 'Operaciones IP (General)',
@@ -860,7 +125,6 @@
             if (areaText) areaText.textContent = areaLabels[targetArea] || targetArea || 'Redes FTTH';
             if (areaValue) areaValue.value = targetArea;
 
-            // Prioridad
             const p = (priority || 'P1').toUpperCase();
             const prioDot = document.getElementById('modalPriorityDot');
             const prioText = document.getElementById('modalPriorityText');
@@ -879,7 +143,6 @@
                 if (prioVal) prioVal.value = 'P3';
             }
 
-            // Operador
             if (opIdInput) opIdInput.value = operatorId || '';
             if (opText) {
                 opText.textContent = operatorName || 'Seleccionar operador...';
@@ -891,16 +154,11 @@
                 }
             }
 
-            // Mostrar/ocultar botón delete/desasignar
             if (unassignBtn) {
-                if (operatorId) {
-                    unassignBtn.classList.remove('hidden');
-                } else {
-                    unassignBtn.classList.add('hidden');
-                }
+                if (operatorId) unassignBtn.classList.remove('hidden');
+                else unassignBtn.classList.add('hidden');
             }
 
-            // Mostrar Overlay con animación suave
             overlay.classList.remove('hidden');
             overlay.classList.add('flex');
             requestAnimationFrame(() => {
@@ -911,10 +169,10 @@
             });
         }
 
-        // Cerrar Modal
         function closeAssignModal() {
             const overlay = document.getElementById('assignModalOverlay');
             const card = document.getElementById('assignModalCard');
+            if (!overlay || !card) return;
 
             card.classList.remove('scale-100', 'opacity-100');
             card.classList.add('scale-95', 'opacity-0');
@@ -927,7 +185,6 @@
             }, 200);
         }
 
-        // Selección de Área en Dropdown
         function setModalArea(enumVal, label) {
             document.getElementById('modalAreaText').textContent = label;
             document.getElementById('selectedAreaValue').value = enumVal;
@@ -935,7 +192,6 @@
             if (details) details.removeAttribute('open');
         }
 
-        // Selección de Prioridad en Dropdown
         function setModalPriority(prio, label, dotColor) {
             const prioText = document.getElementById('modalPriorityText');
             const prioVal = document.getElementById('selectedPriorityValue');
@@ -947,7 +203,6 @@
             if (details) details.removeAttribute('open');
         }
 
-        // Selección de Operador en Dropdown
         function setModalOperator(operatorId, operatorName, initials) {
             document.getElementById('modalOperatorText').textContent = operatorName;
             document.getElementById('selectedOperatorId').value = operatorId;
@@ -956,14 +211,12 @@
             if (details) details.removeAttribute('open');
         }
 
-        // Mostrar Detalle del Asunto
         function showTicketSubjectAlert() {
             const subj = document.getElementById('modalSubjectInput')?.value || '';
             const code = document.getElementById('modalTicketInput')?.value || '';
             alert(`Incidencia: ${code}\n\nAsunto:\n${subj}`);
         }
 
-        // Guardar Asignación en la Base de Datos
         async function saveAssignModal() {
             const operatorId = document.getElementById('selectedOperatorId').value;
             const operatorName = document.getElementById('modalOperatorText').textContent;
@@ -976,20 +229,13 @@
             }
 
             try {
-                // Si es asignación por lote múltiple
                 if (currentTicketCode.includes(',')) {
                     const ticketCodes = currentTicketCode.split(',').map(s => s.trim()).filter(Boolean);
                     const response = await fetch('/api/tickets/batch-assign', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            ticketCodes,
-                            operatorId,
-                            areaDesignada,
-                            prioridad
-                        })
+                        body: JSON.stringify({ ticketCodes, operatorId, areaDesignada, prioridad })
                     });
-
                     const result = await response.json();
                     if (result.success) {
                         closeAssignModal();
@@ -1008,7 +254,6 @@
                     return;
                 }
 
-                // Asignación individual
                 const response = await fetch('/api/tickets/assign', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -1023,11 +268,7 @@
                 const result = await response.json();
                 if (result.success) {
                     closeAssignModal();
-
-                    // Actualizar fila en la tabla visualmente
                     updateRowDisplay(currentTicketCode, operatorName, true, operatorId, areaDesignada, prioridad);
-
-                    // Disparar Notificación Liquid-Glass
                     showNotification('Nueva Asignación', `se asignó correctamente a ${operatorName}`, currentOperatorInitials);
                     updateKPIStats();
                 } else {
@@ -1039,7 +280,6 @@
             }
         }
 
-        // Desasignar Ticket
         async function unassignCurrentTicket() {
             if (!confirm(`¿Deseas desasignar el ticket ${currentTicketCode}?`)) return;
 
@@ -1062,11 +302,145 @@
             }
         }
 
-        // Actualizar visualmente la fila de la tabla
+        // ==========================================
+        // 2. Control de Nuevo Incidente
+        // ==========================================
+        function openNewIncidentModal() {
+            const overlay = document.getElementById('newIncidentModalOverlay');
+            const card = document.getElementById('newIncidentModalCard');
+            document.getElementById('newIncidentForm').reset();
+
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            requestAnimationFrame(() => {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                overlay.classList.add('opacity-100');
+                card.classList.remove('scale-95', 'opacity-0');
+                card.classList.add('scale-100', 'opacity-100');
+            });
+            setTimeout(() => document.getElementById('newIncSubject').focus(), 150);
+        }
+
+        function closeNewIncidentModal() {
+            const overlay = document.getElementById('newIncidentModalOverlay');
+            const card = document.getElementById('newIncidentModalCard');
+            if (!overlay || !card) return;
+
+            card.classList.remove('scale-100', 'opacity-100');
+            card.classList.add('scale-95', 'opacity-0');
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+
+            setTimeout(() => {
+                overlay.classList.remove('flex');
+                overlay.classList.add('hidden');
+            }, 200);
+        }
+
+        async function submitNewIncident(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitNewIncidentBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Guardando...</span>';
+
+            const asunto = document.getElementById('newIncSubject').value;
+            const descripcion = document.getElementById('newIncDescription').value;
+            const areaDesignada = document.getElementById('newIncArea').value;
+            const prioridad = document.getElementById('newIncPriority').value;
+            const operatorId = document.getElementById('newIncOperator').value;
+
+            try {
+                const response = await fetch('/api/tickets/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        asunto,
+                        descripcion,
+                        areaDesignada,
+                        prioridad,
+                        operatorId: operatorId || null
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success && result.ticket) {
+                    closeNewIncidentModal();
+                    showNotification('Incidente Creado', `Se registró ${result.ticket.codigo_incidencia} exitosamente`, 'NOC');
+                    setTimeout(() => window.location.reload(), 800);
+                } else {
+                    alert('Error al crear incidente: ' + (result.error || 'Desconocido'));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error de conexión al registrar incidente');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Crear Incidente</span>';
+            }
+        }
+
+        // ==========================================
+        // 3. Resolución Rápida de Tickets
+        // ==========================================
+        async function resolveTicketQuick(ticketCode) {
+            if (!confirm(`¿Confirmas cerrar y marcar como resuelto el ticket ${ticketCode}?`)) return;
+
+            try {
+                const response = await fetch('/api/tickets/status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ticketCode, estado: 'CERRADO' })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    const row = document.getElementById(`row-${ticketCode}`);
+                    if (row) {
+                        row.setAttribute('data-status', 'CERRADO');
+                        const stateCol = row.querySelector('.state-col');
+                        if (stateCol) {
+                            stateCol.innerHTML = `
+                                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] text-[11px] font-medium" style="background-color: rgba(34, 197, 94, 0.1); color: rgb(20, 83, 45); border: 1px solid rgba(34, 197, 94, 0.2);">
+                                    <span class="w-1.5 h-1.5 rounded-full" style="background-color: #22c55e;"></span>
+                                    <span class="status-text">Cerrado</span>
+                                </span>
+                            `;
+                        }
+                        const timeCol = row.querySelector('.time-col span');
+                        if (timeCol) timeCol.textContent = 'Resuelto';
+                        const actionBtn = row.querySelector('.action-col button');
+                        if (actionBtn && actionBtn.textContent.includes('Cerrar')) {
+                            actionBtn.remove();
+                        }
+                    }
+                    showNotification('Ticket Resuelto', `${ticketCode} marcado como Cerrado`, 'OK');
+
+                    // Actualizar contadores
+                    const kpiDone = document.getElementById('kpi-done');
+                    if (kpiDone) kpiDone.textContent = parseInt(kpiDone.textContent || '0', 10) + 1;
+                    const kpiActive = document.getElementById('kpi-active');
+                    if (kpiActive) {
+                        const cur = parseInt(kpiActive.textContent || '0', 10);
+                        if (cur > 0) kpiActive.textContent = cur - 1;
+                    }
+                    updateKPIStats();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error al actualizar el ticket');
+            }
+        }
+
+        // ==========================================
+        // 4. Actualización Visual de Filas
+        // ==========================================
         function updateRowDisplay(ticketCode, operatorName, isAssigned, operatorId, area, prioridad) {
             const row = document.getElementById(`row-${ticketCode}`);
             if (!row) return;
 
+            row.setAttribute('data-status', isAssigned ? 'EN_PROGRESO' : 'NUEVO');
             const opCol = row.querySelector('.op-col .operator-label');
             const stateCol = row.querySelector('.state-col .status-text');
             const actionBtn = row.querySelector('.action-col button');
@@ -1108,11 +482,8 @@
                 }
             }
 
-            if (area) {
-                row.setAttribute('data-area', area);
-            }
+            if (area) row.setAttribute('data-area', area);
 
-            // El botón de acción permanece siempre fijo como "Asignar"
             const currentPrio = prioridad || row.getAttribute('data-priority') || 'P1';
             const cleanSubj = (row.querySelector('.truncate')?.getAttribute('title') || row.querySelector('.truncate')?.textContent || '').replace(/'/g, "\\'");
 
@@ -1120,13 +491,14 @@
                 actionBtn.textContent = 'Asignar';
                 actionBtn.setAttribute('onclick', `openAssignModal('${ticketCode}', '${cleanSubj}', '${area || 'GENERAL'}', '${operatorId || ''}', '${operatorName || ''}', '${currentPrio}')`);
             }
-
             if (ticketLink) {
                 ticketLink.setAttribute('onclick', `openAssignModal('${ticketCode}', '${cleanSubj}', '${area || 'GENERAL'}', '${operatorId || ''}', '${operatorName || ''}', '${currentPrio}')`);
             }
         }
 
-        // Mostrar Notificación Liquid-Glass
+        // ==========================================
+        // 5. Notificación Toast Liquid Glass
+        // ==========================================
         function showNotification(title, message, initials) {
             const notif = document.getElementById('liquidGlassNotification');
             const titleEl = document.getElementById('notifTitleText');
@@ -1135,26 +507,26 @@
 
             if (titleEl) titleEl.textContent = title;
             if (descEl) descEl.textContent = message;
-            if (badgeEl) badgeEl.textContent = initials || 'OP';
+            if (badgeEl) badgeEl.textContent = initials || 'NOC';
 
             notif.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
             notif.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
 
             if (notifTimeout) clearTimeout(notifTimeout);
-            notifTimeout = setTimeout(() => {
-                hideNotification();
-            }, 4500);
+            notifTimeout = setTimeout(() => hideNotification(), 4500);
         }
 
         function hideNotification() {
             const notif = document.getElementById('liquidGlassNotification');
+            if (!notif) return;
             notif.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
             notif.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
         }
 
         // ==========================================
-        // Filtros y Ordenamiento (Área, Fecha, Prioridad, Búsqueda)
+        // 6. Filtros de Tabla (Segmented Control, Área, Prioridad, Búsqueda)
         // ==========================================
+        let currentStatusFilter = 'ALL';
         let currentAreaFilter = 'ALL';
         let currentPriorityFilter = 'ALL';
         let currentSearchQuery = '';
@@ -1165,49 +537,17 @@
             applyTableFilters();
         }
 
-        function updateKPIStats() {
-            const rows = document.querySelectorAll('.ticket-row');
-            let criticalUnassigned = 0;
-            rows.forEach(row => {
-                const prio = row.getAttribute('data-priority');
-                const op = row.querySelector('.op-col .operator-label')?.textContent || '';
-                const isUnassigned = op.includes('— Sin asignar') || !op.trim();
-                if (prio === 'P1' && isUnassigned) {
-                    criticalUnassigned++;
-                }
+        function filterByStatus(statusCode, elem) {
+            currentStatusFilter = statusCode;
+            document.querySelectorAll('.segment-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-white', 'text-[#1C1C1E]', 'shadow-xs', 'font-semibold');
+                btn.classList.add('text-[#636366]', 'font-medium');
             });
-            const critEl = document.getElementById('kpi-critical');
-            if (critEl) critEl.textContent = criticalUnassigned;
-        }
-
-        function applyTableFilters() {
-            const rows = document.querySelectorAll('.ticket-row');
-            let visibleCount = 0;
-
-            rows.forEach(row => {
-                const rowArea = row.getAttribute('data-area');
-                const rowPrio = row.getAttribute('data-priority');
-                const rowText = row.textContent.toLowerCase();
-
-                const matchesArea = (currentAreaFilter === 'ALL' || rowArea === currentAreaFilter);
-                const matchesPrio = (currentPriorityFilter === 'ALL' || rowPrio === currentPriorityFilter);
-                const matchesSearch = !currentSearchQuery || rowText.includes(currentSearchQuery);
-
-                if (matchesArea && matchesPrio && matchesSearch) {
-                    row.style.display = '';
-                    visibleCount++;
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-
-            const noMatch = document.getElementById('noFilterMatchRow');
-            if (noMatch) {
-                noMatch.classList.toggle('hidden', visibleCount > 0);
+            if (elem) {
+                elem.classList.add('active', 'bg-white', 'text-[#1C1C1E]', 'shadow-xs', 'font-semibold');
+                elem.classList.remove('text-[#636366]', 'font-medium');
             }
-
-            const counter = document.getElementById('activeTicketsCounter');
-            if (counter) counter.textContent = visibleCount;
+            applyTableFilters();
         }
 
         function filterByArea(areaCode, label, elem) {
@@ -1230,7 +570,6 @@
 
             const details = document.getElementById('filterAreaDropdown');
             if (details) details.removeAttribute('open');
-
             applyTableFilters();
         }
 
@@ -1254,8 +593,37 @@
 
             const details = document.getElementById('filterPriorityDropdown');
             if (details) details.removeAttribute('open');
-
             applyTableFilters();
+        }
+
+        function applyTableFilters() {
+            const rows = document.querySelectorAll('.ticket-row');
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const rowStatus = row.getAttribute('data-status') || 'NUEVO';
+                const rowArea = row.getAttribute('data-area');
+                const rowPrio = row.getAttribute('data-priority');
+                const rowText = row.textContent.toLowerCase();
+
+                const matchesStatus = (currentStatusFilter === 'ALL' || rowStatus === currentStatusFilter);
+                const matchesArea = (currentAreaFilter === 'ALL' || rowArea === currentAreaFilter);
+                const matchesPrio = (currentPriorityFilter === 'ALL' || rowPrio === currentPriorityFilter);
+                const matchesSearch = !currentSearchQuery || rowText.includes(currentSearchQuery);
+
+                if (matchesStatus && matchesArea && matchesPrio && matchesSearch) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            const noMatch = document.getElementById('noFilterMatchRow');
+            if (noMatch) noMatch.classList.toggle('hidden', visibleCount > 0);
+
+            const counter = document.getElementById('activeTicketsCounter');
+            if (counter) counter.textContent = visibleCount;
         }
 
         function toggleSortDate() {
@@ -1277,15 +645,25 @@
             if (noMatch) tbody.appendChild(noMatch);
         }
 
-        // Cerrar dropdowns si se hace click fuera
-        document.addEventListener('click', function(e) {
-            const areaDd = document.getElementById('filterAreaDropdown');
-            const prioDd = document.getElementById('filterPriorityDropdown');
-            if (areaDd && !areaDd.contains(e.target)) areaDd.removeAttribute('open');
-            if (prioDd && !prioDd.contains(e.target)) prioDd.removeAttribute('open');
-        });
+        function updateKPIStats() {
+            const rows = document.querySelectorAll('.ticket-row');
+            let criticalUnassigned = 0;
+            rows.forEach(row => {
+                const prio = row.getAttribute('data-priority');
+                const status = row.getAttribute('data-status');
+                const op = row.querySelector('.op-col .operator-label')?.textContent || '';
+                const isUnassigned = op.includes('— Sin asignar') || !op.trim();
+                if (prio === 'P1' && isUnassigned && status !== 'CERRADO') {
+                    criticalUnassigned++;
+                }
+            });
+            const critEl = document.getElementById('kpi-critical');
+            if (critEl) critEl.textContent = criticalUnassigned;
+        }
 
-        // Manejo de Selección Múltiple
+        // ==========================================
+        // 7. Selección Múltiple y Despacho en Lote
+        // ==========================================
         function updateSelectionCount() {
             const checkboxes = document.querySelectorAll('.row-checkbox:checked');
             const count = checkboxes.length;
@@ -1311,7 +689,6 @@
             updateSelectionCount();
         }
 
-        // Asignación Masiva
         function openBatchAssignModal() {
             const checked = document.querySelectorAll('.row-checkbox:checked');
             if (checked.length === 0) return;
@@ -1319,17 +696,35 @@
             openAssignModal(codes.join(', '), `Lote de ${codes.length} incidencias seleccionadas`, 'REDES_FTTH', '', '');
         }
 
+        // ==========================================
+        // 8. Event Listeners & Atajos de Teclado
+        // ==========================================
         function handleBackdropClick(event) {
             if (event.target === document.getElementById('assignModalOverlay')) {
                 closeAssignModal();
             }
         }
 
+        function handleNewIncidentBackdropClick(event) {
+            if (event.target === document.getElementById('newIncidentModalOverlay')) {
+                closeNewIncidentModal();
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            const areaDd = document.getElementById('filterAreaDropdown');
+            const prioDd = document.getElementById('filterPriorityDropdown');
+            if (areaDd && !areaDd.contains(e.target)) areaDd.removeAttribute('open');
+            if (prioDd && !prioDd.contains(e.target)) prioDd.removeAttribute('open');
+        });
+
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeAssignModal();
+                closeNewIncidentModal();
                 hideNotification();
             }
+            // ⌘K o Ctrl+K para Búsqueda Global
             if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 const searchInput = document.getElementById('globalSearchInput');
@@ -1338,7 +733,21 @@
                     searchInput.select();
                 }
             }
+            // ⌘N o Ctrl+N para Nuevo Incidente
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'n') {
+                e.preventDefault();
+                openNewIncidentModal();
+            }
         });
+
+        // Telemetría NOC en Vivo: variación realista de ping cada 4 segundos
+        setInterval(() => {
+            const pingEl = document.getElementById('telemetryPing');
+            if (pingEl) {
+                const randomPing = Math.floor(13 + Math.random() * 8);
+                pingEl.textContent = `${randomPing}ms`;
+            }
+        }, 4000);
     </script>
 </body>
 

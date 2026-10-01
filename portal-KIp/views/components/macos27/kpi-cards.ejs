@@ -1,0 +1,92 @@
+<!-- BEGIN: macOS 27 Liquid Glass KPI Cards Component -->
+<section class="grid grid-cols-4 gap-3 flex-shrink-0" data-purpose="kpi-cards">
+    <!-- Card 1: Tickets Activos -->
+    <div class="relative overflow-hidden bg-white/80 backdrop-blur-[20px] border border-[#E5E5EA] rounded-[16px] p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-200">
+        <div class="flex items-start justify-between">
+            <span class="text-[11px] font-bold text-[#8E8E93] uppercase tracking-wider leading-tight">
+                TICKETS ACTIVOS
+            </span>
+            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-[#007AFF]/10 text-[#007AFF] text-[10px] font-mono font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#007AFF] animate-ping"></span>
+                En cola
+            </span>
+        </div>
+        <div class="mt-2 text-[34px] font-bold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none" id="kpi-active">
+            <%= typeof ticketsActivos !== 'undefined' ? ticketsActivos : 0 %>
+        </div>
+        <div class="mt-1 text-[11px] text-[#8E8E93] flex items-center gap-1 font-medium">
+            <span>● Cola de atención NOC activa</span>
+        </div>
+    </div>
+
+    <!-- Card 2: Tickets Realizados -->
+    <div class="relative overflow-hidden bg-white/80 backdrop-blur-[20px] border border-[#E5E5EA] rounded-[16px] p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-200">
+        <div class="flex items-start justify-between">
+            <span class="text-[11px] font-bold text-[#8E8E93] uppercase tracking-wider leading-tight">
+                TICKETS REALIZADOS
+            </span>
+            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-[#34C759]/10 text-[#34C759] text-[10px] font-mono font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#34C759]"></span>
+                Hoy
+            </span>
+        </div>
+        <div class="mt-2 text-[34px] font-bold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none text-[#1B873F]" id="kpi-done">
+            <%= typeof ticketsRealizados !== 'undefined' ? ticketsRealizados : 0 %>
+        </div>
+        <div class="mt-1 text-[11px] text-[#8E8E93] flex items-center gap-1 font-medium">
+            <span>✓ Cerrados en el turno actual</span>
+        </div>
+    </div>
+
+    <!-- Card 3: Críticos Sin Asignar -->
+    <div class="relative overflow-hidden bg-white/80 backdrop-blur-[20px] border border-[#E5E5EA] rounded-[16px] p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-200">
+        <div class="flex items-start justify-between">
+            <span class="text-[11px] font-bold text-[#8E8E93] uppercase tracking-wider leading-tight">
+                CRÍTICOS SIN ASIGNAR
+            </span>
+            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-[#FF3B30]/10 text-[#FF3B30] text-[10px] font-mono font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#FF3B30] animate-pulse"></span>
+                P1 SLA
+            </span>
+        </div>
+        <div class="mt-2 text-[34px] font-bold font-mono text-[#FF3B30] tracking-tight num-tabular leading-none" id="kpi-critical">
+            <%= typeof criticosSinAsignar !== 'undefined' ? criticosSinAsignar : 0 %>
+        </div>
+        <div class="mt-1 text-[11px] text-[#8E8E93] flex items-center gap-1 font-medium">
+            <span>Requieren operador urgente</span>
+        </div>
+    </div>
+
+    <!-- Card 4: Operadores Disponibles -->
+    <div class="relative overflow-hidden bg-white/80 backdrop-blur-[20px] border border-[#E5E5EA] rounded-[16px] p-4 flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-200">
+        <div class="flex items-start justify-between">
+            <span class="text-[11px] font-bold text-[#8E8E93] uppercase tracking-wider leading-tight">
+                OPERADORES DISPONIBLES
+            </span>
+            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-[#34C759]/10 text-[#34C759] text-[10px] font-mono font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#34C759]"></span>
+                Capacidad
+            </span>
+        </div>
+        <div class="mt-2 flex items-center justify-between">
+            <div class="flex items-baseline gap-1.5">
+                <span id="kpi-operators" class="text-[34px] font-bold font-mono text-[#1C1C1E] tracking-tight num-tabular leading-none">
+                    <%= typeof operadoresDisponibles !== 'undefined' ? operadoresDisponibles : 0 %>
+                </span>
+                <span class="text-xs font-mono text-[#8E8E93] font-medium leading-none">/ <%= typeof totalOperadores !== 'undefined' ? totalOperadores : 0 %> activos</span>
+            </div>
+            <div class="w-8 h-8 rounded-[8px] bg-[#F2F2F7] border border-[#E5E5EA] flex items-center justify-center text-[#636366]">
+                <svg class="w-4 h-4 text-[#636366]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="mt-1 text-[11px] text-[#8E8E93] flex items-center gap-1 font-medium">
+            <span>Especialistas listos para despacho</span>
+        </div>
+    </div>
+</section>
+<!-- END: KPI Cards Component -->

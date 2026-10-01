@@ -1,0 +1,40 @@
+<!-- ==================================================================== -->
+<!-- BEGIN: macOS Liquid Glass Notification Toast Component -->
+<!-- ==================================================================== -->
+<div id="liquidGlassNotification"
+    style="width: 344px; min-height: 77px; display: flex; flex-direction: row; align-items: flex-start; padding: 12px 14px 12px 10px; gap: 8px; isolation: isolate; position: absolute; top: 20px; right: 20px; z-index: 9999; border-radius: 20px; background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.5)), rgba(240, 240, 245, 0.7); box-shadow: rgb(219, 219, 219) 1.25px 0px 0px -0.75px, rgb(219, 219, 219) -1.25px 0px 0px -0.75px, rgb(219, 219, 219) 0px 0px 0px 0.5px, rgba(0, 0, 0, 0.18) 0px 8px 48px, rgba(40, 40, 40, 0.08) 0px 40px 5px -40px inset, rgba(40, 40, 40, 0.08) 0px -40px 5px -40px inset; backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s;"
+    class="select-none cursor-pointer opacity-0 pointer-events-none translate-y-[-10px]"
+    onclick="hideNotification()">
+    <!-- Status Icon Badge -->
+    <div style="width: 40px; height: 53px; display: flex; align-items: center; justify-content: center; padding: 0 4px; flex-shrink: 0;">
+        <div id="notifIconContainer"
+            style="width: 32px; height: 32px; border-radius: 10px; background: #34C759; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(52,199,89,0.35);">
+            <svg id="notifIconSvg" style="width: 18px; height: 18px; color: #FFFFFF; stroke-width: 2.8; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round;"
+                viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Title & Description -->
+    <div style="width: 232px; height: 53px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; z-index: 2;">
+        <span id="notifTitleText"
+            style="font-weight: 700; font-size: 13px; line-height: 16px; letter-spacing: -0.02em; color: #1A1A1A;">
+            Nueva Asignación
+        </span>
+        <span id="notifDescriptionText"
+            style="font-weight: 400; font-size: 13px; line-height: 16px; letter-spacing: -0.008em; color: #1A1A1A; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 228px;">
+            se asignó correctamente
+        </span>
+    </div>
+
+    <!-- Timestamp & Avatar -->
+    <div style="width: 32px; height: 53px; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 7px; z-index: 3; flex-shrink: 0;">
+        <span style="font-size: 11px; line-height: 14px; text-align: right; color: #8E8E93;">Ahora</span>
+        <div id="notifAvatarBadge"
+            style="width: 28px; height: 28px; border-radius: 8px; background: #007AFF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; box-shadow: 0 1px 3px rgba(0,122,255,0.3);">
+            CM
+        </div>
+    </div>
+</div>
+<!-- END: Notification Toast Component -->

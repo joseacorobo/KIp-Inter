@@ -1,0 +1,76 @@
+<!-- BEGIN: macOS Unified Titlebar & Toolbar Component -->
+<header class="h-[52px] bg-white/90 backdrop-blur-[20px] border-b border-[#E5E5EA] px-4 flex items-center justify-between select-none z-20 flex-shrink-0">
+    <!-- Left: Window Controls + Brand Identity -->
+    <div class="flex items-center gap-3">
+        <!-- macOS Window Traffic Lights (Native Apple HIG) -->
+        <div class="flex items-center gap-2 group cursor-default pr-1.5" title="Controles de Ventana">
+            <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E] flex items-center justify-center text-[8px] text-black/60 opacity-90 group-hover:opacity-100 transition shadow-xs cursor-pointer">
+                <span class="hidden group-hover:inline leading-none font-bold">×</span>
+            </span>
+            <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123] flex items-center justify-center text-[8px] text-black/60 opacity-90 group-hover:opacity-100 transition shadow-xs cursor-pointer">
+                <span class="hidden group-hover:inline leading-none font-bold">−</span>
+            </span>
+            <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29] flex items-center justify-center text-[8px] text-black/60 opacity-90 group-hover:opacity-100 transition shadow-xs cursor-pointer">
+                <span class="hidden group-hover:inline leading-none font-bold">+</span>
+            </span>
+        </div>
+
+        <div class="h-4 w-[1px] bg-[#D1D1D6]"></div>
+
+        <!-- Logo & App Name -->
+        <div class="flex items-center gap-2.5">
+            <img alt="Logo Inter" class="h-[24px] w-auto object-contain"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtCf1kyA5Xv3ji8h2EifMIzU5ZiU3r5XlzhgnLFSjZns31wuEmyWwyxb7Ibp30TQgk1BU7IO9qFU5Ri9xtP1U6XPsTT3Ew2iMHnDiOmn4Y-IT_Fy4lZdLyfTzEBMnrxeUJ-S7GYU870d6-54QeqaoelnE_92ZTd36r0rRy5wwIyJJcT881mYSiNC15GTzaM5v_ZLKyzhMIEo-MMFCaNtJqZCR6YOc7FYA8AUcQvEfl_R03WH_n6yHU3a8zKevr3gppvw">
+            <span class="text-[13px] font-semibold text-[#1C1C1E] tracking-tight">Operaciones IP</span>
+        </div>
+
+        <!-- Shift Badge -->
+        <div class="ml-1 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#F2F2F7] border border-[#D1D1D6] text-[11px] text-[#48484A] font-medium">
+            <span class="w-2 h-2 rounded-full bg-[#34C759] animate-pulse"></span>
+            <span>Turno A (07:00 - 15:00)</span>
+        </div>
+    </div>
+
+    <!-- Right: Search, New Incident Action & User Profile -->
+    <div class="flex items-center gap-2.5">
+        <!-- Search Field (macOS Pill Style) -->
+        <div class="relative flex items-center w-[150px] focus-within:w-[210px] h-[30px] px-2.5 gap-1.5 bg-[#F5F5F7] border border-[#D1D1D6] rounded-full transition-all duration-200 focus-within:bg-white focus-within:border-[#007AFF] focus-within:shadow-xs">
+            <svg class="w-3.5 h-3.5 text-[#8E8E93] flex-shrink-0 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+            </svg>
+            <input
+                id="globalSearchInput"
+                oninput="onSearchInput(this.value)"
+                class="w-full min-w-0 bg-transparent text-[11px] text-[#1C1C1E] placeholder-[#8E8E93] focus:outline-none border-none p-0"
+                placeholder="Buscar incidente..." type="text">
+            <span class="flex-shrink-0 px-1 py-0.2 text-[9px] font-mono text-[#8E8E93] bg-white border border-[#D1D1D6] rounded pointer-events-none font-medium">⌘K</span>
+        </div>
+
+        <!-- Nuevo Incidente Button -->
+        <button
+            onclick="openNewIncidentModal()"
+            class="flex items-center gap-1.5 px-3 py-1.5 bg-[#007AFF] hover:bg-[#0062CC] active:bg-[#0055B3] text-white rounded-[8px] font-medium text-[12px] shadow-sm transition cursor-pointer select-none">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <line x1="12" x2="12" y1="5" y2="19"></line>
+                <line x1="5" x2="19" y1="12" y2="12"></line>
+            </svg>
+            <span>Nuevo Incidente</span>
+            <span class="text-[9px] opacity-75 font-mono ml-0.5">⌘N</span>
+        </button>
+
+        <div class="h-4 w-[1px] bg-[#D1D1D6] mx-0.5"></div>
+
+        <!-- Leader Profile Badge -->
+        <div class="flex items-center gap-2 px-2 py-1 rounded-[8px] hover:bg-[#F2F2F7] transition cursor-pointer border border-transparent hover:border-[#D1D1D6]">
+            <div class="w-7 h-7 rounded-full bg-[#007AFF] text-white flex items-center justify-center font-mono font-semibold text-[11px] shadow-xs">
+                CP
+            </div>
+            <div class="flex flex-col text-left">
+                <span class="text-[11px] font-medium text-[#1C1C1E] leading-tight">Coord. NOC</span>
+                <span class="text-[9px] font-mono font-bold text-[#34C759] tracking-wider leading-tight">● LÍDER ACTIVO</span>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- END: Titlebar Component -->

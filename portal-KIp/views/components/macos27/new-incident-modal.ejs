@@ -1,0 +1,102 @@
+<!-- ==================================================================== -->
+<!-- BEGIN: Modal Sheet "NUEVO INCIDENTE" (Diseño Nativo macOS 27 Sheet) -->
+<!-- ==================================================================== -->
+<div id="newIncidentModalOverlay"
+    class="absolute inset-0 bg-black/35 backdrop-blur-[4px] z-50 items-center justify-center transition-all duration-200 opacity-0 pointer-events-none hidden"
+    onclick="handleNewIncidentBackdropClick(event)">
+    <!-- Modal Card (420px width, rounded-[22px], Apple HIG) -->
+    <div id="newIncidentModalCard"
+        class="w-[420px] bg-white rounded-[22px] border border-[#E5E5EA] shadow-[0_24px_60px_rgba(0,0,0,0.22)] p-6 flex flex-col gap-4 transform transition-all duration-200 select-none scale-95 opacity-0">
+        
+        <!-- Header -->
+        <div class="text-center pt-1">
+            <div class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#007AFF]/10 text-[#007AFF] mb-1.5 shadow-xs">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <line x1="12" x2="12" y1="5" y2="19"></line>
+                    <line x1="5" x2="19" y1="12" y2="12"></line>
+                </svg>
+            </div>
+            <h3 class="text-[15px] font-bold text-[#1C1C1E] tracking-tight uppercase leading-tight font-sans">
+                NUEVO INCIDENTE DE RED
+            </h3>
+            <p class="text-[12px] text-[#8E8E93] leading-snug mt-1 px-4 font-normal">
+                Registra la incidencia en la cola de despacho activa de Operaciones IP
+            </p>
+        </div>
+
+        <!-- Form Fields -->
+        <form id="newIncidentForm" onsubmit="submitNewIncident(event)" class="space-y-3 pt-1">
+            <!-- Asunto -->
+            <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-[#636366] mb-1">Asunto de la Falla / Incidencia:</label>
+                <input id="newIncSubject" required
+                    class="w-full h-[36px] px-3 bg-[#EDEDF0] focus:bg-white rounded-[10px] text-[13px] text-[#1C1C1E] border border-black/5 focus:border-[#007AFF] focus:ring-2 focus:ring-[#007AFF]/25 transition outline-none"
+                    placeholder="Ej. Intermitencia PON Nodo El Recreo" type="text">
+            </div>
+
+            <!-- Área y Prioridad en 2 Columnas -->
+            <div class="grid grid-cols-2 gap-2.5">
+                <!-- Área -->
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-wider text-[#636366] mb-1">Área Técnica:</label>
+                    <select id="newIncArea"
+                        class="w-full h-[36px] px-2.5 bg-[#EDEDF0] focus:bg-white rounded-[10px] text-[12px] font-medium text-[#1C1C1E] border border-black/5 focus:border-[#007AFF] focus:ring-2 focus:ring-[#007AFF]/25 transition outline-none cursor-pointer">
+                        <option value="REDES_FTTH" selected>Redes FTTH</option>
+                        <option value="GENERAL">Operaciones IP (General)</option>
+                        <option value="WAN">WAN</option>
+                        <option value="GRANDES_CLIENTES">Grandes Clientes</option>
+                        <option value="TELEFONIA">Telefonía</option>
+                        <option value="SEGURIDAD">Seguridad</option>
+                        <option value="TRAFICO_INALAMBRICO">Tráfico</option>
+                    </select>
+                </div>
+
+                <!-- Prioridad -->
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-wider text-[#636366] mb-1">Prioridad SLA:</label>
+                    <select id="newIncPriority"
+                        class="w-full h-[36px] px-2.5 bg-[#EDEDF0] focus:bg-white rounded-[10px] text-[12px] font-medium text-[#1C1C1E] border border-black/5 focus:border-[#007AFF] focus:ring-2 focus:ring-[#007AFF]/25 transition outline-none cursor-pointer">
+                        <option value="P1">🔴 P1 - Crítico (8 pts)</option>
+                        <option value="P2" selected>🟡 P2 - Media (5 pts)</option>
+                        <option value="P3">⚪ P3 - Normal (1 pto)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Asignación Inmediata (Opcional) -->
+            <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-[#636366] mb-1">Asignar a Operador (Opcional):</label>
+                <select id="newIncOperator"
+                    class="w-full h-[36px] px-2.5 bg-[#EDEDF0] focus:bg-white rounded-[10px] text-[12px] font-medium text-[#1C1C1E] border border-black/5 focus:border-[#007AFF] focus:ring-2 focus:ring-[#007AFF]/25 transition outline-none cursor-pointer">
+                    <option value="">— Dejar en Cola General (Sin Asignar)</option>
+                    <% if (typeof operadores !== 'undefined' && operadores.length > 0) { %>
+                        <% operadores.forEach(function(op) { %>
+                            <option value="<%= op.id %>"><%= op.nombre %> (<%= op.area_designada %>)</option>
+                        <% }); %>
+                    <% } %>
+                </select>
+            </div>
+
+            <!-- Descripción Detallada -->
+            <div>
+                <label class="block text-[11px] font-bold uppercase tracking-wider text-[#636366] mb-1">Observaciones Técnicas:</label>
+                <textarea id="newIncDescription" rows="2"
+                    class="w-full p-2.5 bg-[#EDEDF0] focus:bg-white rounded-[10px] text-[12px] text-[#1C1C1E] border border-black/5 focus:border-[#007AFF] focus:ring-2 focus:ring-[#007AFF]/25 transition outline-none resize-none"
+                    placeholder="Detalles sobre OLT, tarjetas o clientes afectados..."></textarea>
+            </div>
+
+            <!-- Actions Toolbar -->
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button type="button" onclick="closeNewIncidentModal()"
+                    class="h-[34px] px-4 bg-[#E5E5EA] hover:bg-[#DCDCE0] active:bg-[#D1D1D6] text-[#3A3A3C] text-[13px] font-medium rounded-[10px] transition cursor-pointer select-none">
+                    Cancelar
+                </button>
+                <button type="submit" id="submitNewIncidentBtn"
+                    class="h-[34px] px-5 bg-[#007AFF] hover:bg-[#006DE6] active:bg-[#0062CC] text-white text-[13px] font-medium rounded-[10px] shadow-sm transition cursor-pointer select-none flex items-center gap-1.5">
+                    <span>Crear Incidente</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END: Modal Sheet -->

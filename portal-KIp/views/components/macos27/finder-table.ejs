@@ -1,0 +1,278 @@
+<!-- BEGIN: macOS Finder List View Table Component -->
+<section class="flex-1 bg-white border border-[#E5E5EA] rounded-[14px] flex flex-col min-h-0 overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.04)]" data-purpose="incident-queue">
+    <!-- Table Header Filter Bar -->
+    <div class="px-3 py-2 bg-[#F6F6F8] border-b border-[#E5E5EA] flex items-center justify-between flex-shrink-0 relative z-20 overflow-visible">
+        <div class="flex items-center gap-2">
+            <!-- macOS Segmented Control para Estados Rápidos -->
+            <div class="macos-segmented-control bg-[#E5E5EA]/70 p-0.5 rounded-[7px] flex items-center select-none mr-1">
+                <button onclick="filterByStatus('ALL', this)" class="segment-btn active px-2.5 py-0.5 rounded-[5px] text-[11px] font-semibold transition shadow-xs bg-white text-[#1C1C1E]">
+                    Todos
+                </button>
+                <button onclick="filterByStatus('NUEVO', this)" class="segment-btn px-2.5 py-0.5 rounded-[5px] text-[11px] font-medium text-[#636366] hover:text-[#1C1C1E] transition">
+                    Nuevos
+                </button>
+                <button onclick="filterByStatus('EN_PROGRESO', this)" class="segment-btn px-2.5 py-0.5 rounded-[5px] text-[11px] font-medium text-[#636366] hover:text-[#1C1C1E] transition">
+                    En Progreso
+                </button>
+                <button onclick="filterByStatus('EN_ESPERA_TERCEROS', this)" class="segment-btn px-2.5 py-0.5 rounded-[5px] text-[11px] font-medium text-[#636366] hover:text-[#1C1C1E] transition">
+                    En Espera
+                </button>
+                <button onclick="filterByStatus('CERRADO', this)" class="segment-btn px-2.5 py-0.5 rounded-[5px] text-[11px] font-medium text-[#636366] hover:text-[#1C1C1E] transition">
+                    Cerrados
+                </button>
+            </div>
+
+            <div class="h-4 w-[1px] bg-[#D1D1D6]"></div>
+            
+            <!-- Área Dropdown -->
+            <div class="flex items-center gap-1.5">
+                <span class="text-[11px] text-[#8E8E93] font-medium">Área:</span>
+                <details id="filterAreaDropdown" class="relative group select-none z-30">
+                    <summary
+                        class="list-none flex items-center justify-between gap-2 h-[24px] pl-2 pr-1 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] rounded-[6px] border border-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04)] cursor-pointer text-[12px] font-medium text-[#1C1C1E] transition focus:outline-none">
+                        <span id="filterAreaText" class="truncate text-[12px] leading-none font-medium text-[#1C1C1E]/90">General</span>
+                        <span class="flex items-center justify-center w-[16px] h-[16px] rounded-[4px] bg-black/5 text-[#636366]">
+                            <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="absolute left-0 top-[28px] w-[160px] bg-white rounded-[8px] border border-[#D1D1D6] shadow-[0_8px_20px_rgba(0,0,0,0.12)] p-1 z-30 space-y-0.5 text-[12px]">
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] bg-[#007AFF] text-white font-medium cursor-pointer" onclick="event.preventDefault();filterByArea('ALL', 'General', this)">
+                            <span class="truncate">General</span>
+                            <svg class="check-icon w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByArea('REDES_FTTH', 'Redes FTTH', this)">
+                            <span class="truncate">Redes FTTH</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByArea('WAN', 'WAN', this)">
+                            <span class="truncate">WAN</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByArea('GRANDES_CLIENTES', 'Grandes Clientes', this)">
+                            <span class="truncate">Grandes Clientes</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByArea('TELEFONIA', 'Telefonía', this)">
+                            <span class="truncate">Telefonía</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByArea('SEGURIDAD', 'Seguridad', this)">
+                            <span class="truncate">Seguridad</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-area-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByArea('TRAFICO_INALAMBRICO', 'Tráfico', this)">
+                            <span class="truncate">Tráfico</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Filtrar por: Fecha y Prioridad -->
+            <div class="flex items-center gap-1.5 ml-1">
+                <button id="filterDateBtn" onclick="toggleSortDate()"
+                    class="flex items-center gap-1 h-[24px] px-2 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] rounded-[6px] border border-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-[12px] font-medium text-[#1C1C1E] transition focus:outline-none cursor-pointer"
+                    title="Ordenar por Fecha">
+                    <svg class="w-3 h-3 text-[#636366] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect>
+                        <line x1="16" x2="16" y1="2" y2="6"></line>
+                        <line x1="8" x2="8" y1="2" y2="6"></line>
+                        <line x1="3" x2="21" y1="10" y2="10"></line>
+                    </svg>
+                    <span class="leading-none">Fecha</span>
+                    <span id="dateSortIndicator" class="text-[9px] text-[#8E8E93] leading-none">▼</span>
+                </button>
+                
+                <details id="filterPriorityDropdown" class="relative group select-none z-30">
+                    <summary
+                        class="list-none flex items-center h-[24px] pl-2 pr-1 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] rounded-[6px] border border-black/10 shadow-[0_1px_2px_rgba(0,0,0,0.04)] gap-1.5 cursor-pointer transition select-none">
+                        <span id="filterPriorityText" class="text-[12px] font-medium text-[#1C1C1E] leading-none">Prioridad</span>
+                        <span class="flex items-center justify-center w-[16px] h-[16px] rounded-[4px] bg-black/5 text-[#636366]">
+                            <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 15l5 5 5-5M7 9l5-5 5 5"></path></svg>
+                        </span>
+                    </summary>
+                    <div class="absolute left-0 top-[28px] w-[140px] bg-white rounded-[8px] border border-[#D1D1D6] shadow-[0_8px_20px_rgba(0,0,0,0.12)] p-1 z-30 space-y-0.5 text-[12px]">
+                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] bg-[#007AFF] text-white font-medium cursor-pointer" onclick="event.preventDefault();filterByPriority('ALL', 'Prioridad', this)">
+                            <span>Todas</span>
+                            <svg class="check-icon w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByPriority('P1', 'P1 (Crítica)', this)">
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#FF3B30]"></span>P1 (Crítica)</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByPriority('P2', 'P2 (Media)', this)">
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#FFBD2E]"></span>P2 (Media)</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                        <a class="filter-prio-item flex items-center justify-between px-2 py-1 rounded-[5px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();filterByPriority('P3', 'P3 (Baja)', this)">
+                            <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#8E8E93]"></span>P3 (Baja)</span>
+                            <svg class="check-icon w-3 h-3 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                        </a>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Right: Bulk Selection, Export & Action Button -->
+        <div class="flex items-center gap-2.5 text-xs text-[#8E8E93]">
+            <a href="/api/tickets/export" class="flex items-center gap-1 h-[24px] px-2 bg-white hover:bg-[#F9F9FA] active:bg-[#F2F2F7] border border-black/10 rounded-[6px] text-[11px] font-medium text-[#1C1C1E] shadow-xs transition" title="Exportar incidencias a CSV">
+                <svg class="w-3 h-3 text-[#636366]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                <span>Exportar</span>
+            </a>
+
+            <div class="h-4 w-[1px] bg-[#D1D1D6]"></div>
+
+            <div class="flex items-center gap-2">
+                <span class="text-[11px]">Seleccionados: <strong id="selectionBadgeCount" class="text-[#007AFF] font-mono font-semibold">0</strong></span>
+                <button id="batchAssignBtn" onclick="openBatchAssignModal()"
+                    class="flex items-center gap-1.5 h-[24px] px-2.5 bg-[#007AFF] hover:bg-[#0062CC] text-white rounded-[6px] text-[11px] font-medium shadow-xs transition select-none disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
+                    disabled>
+                    <span id="batchAssignBtnText" class="leading-none">Asignar Tickets</span>
+                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Finder Native List Table -->
+    <div class="flex-1 overflow-y-auto overflow-x-hidden min-h-0 bg-white">
+        <table class="w-full text-left border-collapse table-fixed text-[12px]">
+            <thead class="sticky top-0 z-10 bg-[#F5F5F7] border-b border-[#E5E5EA] select-none text-[11px] text-[#8E8E93] font-bold uppercase tracking-wider">
+                <tr>
+                    <th class="finder-th w-[40px] py-1.5 px-3 text-center align-middle">
+                        <div class="flex items-center justify-center">
+                            <input id="selectAllCheckbox" onchange="toggleSelectAll(this)" type="checkbox"
+                                class="w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
+                        </div>
+                    </th>
+                    <th class="finder-th w-[130px] py-1.5 px-3 align-middle font-bold text-[#636366]">Ticket</th>
+                    <th class="finder-th w-[85px] py-1.5 px-2.5 align-middle font-bold text-[#636366]">Prioridad</th>
+                    <th class="finder-th w-[115px] py-1.5 px-2.5 align-middle font-bold text-[#636366]">Estado</th>
+                    <th class="finder-th py-1.5 px-3 align-middle font-bold text-[#636366]">Asunto</th>
+                    <th class="finder-th w-[160px] py-1.5 px-2.5 align-middle font-bold text-[#636366]">Operador Asignado</th>
+                    <th class="finder-th w-[90px] py-1.5 px-2.5 text-center align-middle font-bold text-[#636366]">Tiempo</th>
+                    <th class="finder-th w-[135px] py-1.5 px-3 text-right align-middle font-bold text-[#636366]">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="ticketTableBody" class="divide-y divide-[#F2F2F7] text-[#1C1C1E]">
+                <% if (typeof tickets !== 'undefined' && tickets && tickets.length > 0) { %>
+                    <% tickets.forEach(function(ticket) { 
+                        let prio = 'P3';
+                        let prioDot = '#8E8E93';
+                        let prioBg = '#F2F2F7';
+                        let prioTxt = '#1C1C1E';
+                        if (ticket.puntos_complejidad >= 8) {
+                            prio = 'P1'; prioDot = '#FF3B30'; prioBg = '#FFE5E5'; prioTxt = '#D70015';
+                        } else if (ticket.puntos_complejidad >= 5) {
+                            prio = 'P2'; prioDot = '#FFBD2E'; prioBg = '#FFF4D6'; prioTxt = '#B25E02';
+                        }
+
+                        let estado = ticket.estado_actual || 'NUEVO';
+                        let stateBg = 'rgba(100, 116, 139, 0.1)'; let stateColor = 'rgb(30, 41, 59)';
+                        let stateBorder = 'rgba(100, 116, 139, 0.2)'; let stateDot = '#64748b';
+                        let estadoLabel = 'Nuevo';
+
+                        if (estado === 'EN_PROGRESO') {
+                            stateBg = 'rgba(2, 132, 199, 0.1)'; stateColor = 'rgb(12, 74, 110)'; stateBorder = 'rgba(2, 132, 199, 0.2)'; stateDot = '#0284c7'; estadoLabel = 'En Progreso';
+                        } else if (estado === 'EN_ESPERA_TERCEROS') {
+                            stateBg = 'rgba(245, 158, 11, 0.1)'; stateColor = 'rgb(146, 64, 14)'; stateBorder = 'rgba(245, 158, 11, 0.2)'; stateDot = '#f59e0b'; estadoLabel = 'En Espera';
+                        } else if (estado === 'CERRADO') {
+                            stateBg = 'rgba(34, 197, 94, 0.1)'; stateColor = 'rgb(20, 83, 45)'; stateBorder = 'rgba(34, 197, 94, 0.2)'; stateDot = '#22c55e'; estadoLabel = 'Cerrado';
+                        }
+
+                        let opAsignado = ticket.asignado_a ? ticket.asignado_a.nombre : null;
+                        let opId = ticket.asignado_a_id || '';
+                        let area = ticket.area_designada || 'GENERAL';
+                        let cleanSubject = (ticket.asunto || '').replace(/'/g, "\\'");
+                    %>
+                    <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F8F8FA] group transition-colors" data-status="<%= estado %>" data-area="<%= area %>" data-priority="<%= prio %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>">
+                        <td class="py-2 px-3 align-middle text-center w-[40px]">
+                            <div class="flex items-center justify-center">
+                                <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" onchange="updateSelectionCount()" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
+                            </div>
+                        </td>
+                        <td class="py-2 px-3 align-middle whitespace-nowrap">
+                            <div class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-[#8E8E93] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                                <a class="font-mono font-medium text-[#1C1C1E] hover:text-[#007AFF] hover:underline cursor-pointer" onclick="openAssignModal('<%= ticket.codigo_incidencia %>', '<%= cleanSubject %>', '<%= area %>', '<%= opId %>', '<%= opAsignado || '' %>', '<%= prio %>')"><%= ticket.codigo_incidencia %></a>
+                            </div>
+                        </td>
+                        <td class="py-2 px-2.5 align-middle whitespace-nowrap">
+                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-[4px] text-[10px] font-mono font-medium border border-[#D1D1D6]" style="background-color: <%= prioBg %>; color: <%= prioTxt %>;">
+                                <span class="w-1.5 h-1.5 rounded-full" style="background-color: <%= prioDot %>;"></span>
+                                <%= prio %>
+                            </span>
+                        </td>
+                        <td class="state-col py-2 px-2.5 align-middle whitespace-nowrap">
+                            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[4px] text-[11px] font-medium" style="background-color: <%= stateBg %>; color: <%= stateColor %>; border: 1px solid <%= stateBorder %>;">
+                                <span class="w-1.5 h-1.5 rounded-full" style="background-color: <%= stateDot %>;"></span>
+                                <span class="status-text"><%= estadoLabel %></span>
+                            </span>
+                        </td>
+                        <td class="py-2 px-3 align-middle truncate font-normal text-[#1C1C1E]" title="<%= ticket.asunto %>"><%= ticket.asunto %></td>
+                        <td class="op-col py-2 px-2.5 align-middle whitespace-nowrap text-[#1C1C1E] font-medium text-[11px]">
+                            <span class="operator-label <%= !opAsignado ? 'italic text-[#8E8E93]' : 'font-semibold text-[#007AFF]' %>"><%= opAsignado || '— Sin asignar' %></span>
+                        </td>
+                        <td class="time-col py-2 px-2.5 align-middle text-center">
+                            <span class="inline-block font-mono text-[11px] text-[#48484A] bg-[#F2F2F7] border border-[#E5E5EA] px-2 py-0.5 rounded-[4px]">
+                                <%= estado === 'CERRADO' ? 'Resuelto' : '1 min esp.' %>
+                            </span>
+                        </td>
+                        <td class="action-col py-2 px-3 align-middle text-right whitespace-nowrap">
+                            <div class="inline-flex items-center gap-1.5 justify-end">
+                                <% if (estado !== 'CERRADO') { %>
+                                    <button onclick="resolveTicketQuick('<%= ticket.codigo_incidencia %>')" title="Resolver / Cerrar ticket" class="bg-[#E3F9E5] hover:bg-[#D1F2D4] active:bg-[#BCE8C1] border border-[#1B873F]/20 text-[#1B873F] text-[10px] font-semibold px-2 py-1 rounded-[6px] transition cursor-pointer">
+                                        ✓ Cerrar
+                                    </button>
+                                <% } %>
+                                <button onclick="openAssignModal('<%= ticket.codigo_incidencia %>', '<%= cleanSubject %>', '<%= area %>', '<%= opId %>', '<%= opAsignado || '' %>', '<%= prio %>')" class="bg-white hover:bg-[#F2F2F7] active:bg-[#E5E5EA] border border-[#D1D1D6] text-[#1C1C1E] text-[11px] font-medium px-2.5 py-1 rounded-[6px] shadow-xs transition cursor-pointer">
+                                    Asignar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="8" class="text-center py-8 text-[#8E8E93] text-[13px]">
+                            No hay incidencias registradas en este momento.
+                        </td>
+                    </tr>
+                <% } %>
+                <tr id="noFilterMatchRow" class="hidden">
+                    <td colspan="8" class="text-center py-8 text-[#8E8E93] text-[13px]">
+                        No hay incidencias que coincidan con los filtros seleccionados.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- BEGIN: macOS Finder Bottom Status & Action Bar -->
+    <div class="px-4 py-2 bg-[#F6F6F8] border-t border-[#E5E5EA] flex items-center justify-between flex-shrink-0 text-xs select-none">
+        <div class="flex items-center gap-2">
+            <a href="/api/tickets/export" class="px-2.5 py-1 bg-white hover:bg-[#F2F2F7] border border-[#D1D1D6] rounded-[6px] font-medium text-[11px] shadow-xs transition cursor-pointer flex items-center gap-1.5">
+                <svg class="w-3 h-3 text-[#636366]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                <span>Descargar Reporte CSV</span>
+            </a>
+            <div class="h-4 w-[1px] bg-[#D1D1D6] mx-1"></div>
+            <span class="text-[#8E8E93] text-[11px]">
+                Mostrando <strong id="activeTicketsCounter" class="text-[#1C1C1E] font-mono"><%= typeof tickets !== 'undefined' && tickets ? tickets.length : 0 %></strong> casos en cola
+            </span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="flex items-center rounded-[6px] border border-[#D1D1D6] bg-white p-0.5 mr-1">
+                <button class="px-2 py-0.5 text-[#8E8E93] disabled:opacity-40 cursor-default" disabled>‹</button>
+                <span class="px-2 py-0.5 bg-[#007AFF] text-white font-mono font-semibold rounded-[4px] text-[11px]">1</span>
+                <button class="px-2 py-0.5 text-[#3A3A3C] hover:text-black cursor-pointer">›</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Finder Table Component -->

@@ -1,0 +1,208 @@
+<!-- ==================================================================== -->
+<!-- BEGIN: Modal Sheet "CONFIG DE ASIGNACION" Component -->
+<!-- ==================================================================== -->
+<div id="assignModalOverlay"
+    class="absolute inset-0 bg-black/35 backdrop-blur-[4px] z-50 items-center justify-center transition-opacity duration-200 opacity-0 pointer-events-none hidden"
+    onclick="handleBackdropClick(event)">
+    <!-- Modal Window Card View (410px width, rounded-[22px], white background) -->
+    <div id="assignModalCard"
+        class="w-[410px] bg-white rounded-[22px] border border-[#E5E5EA] shadow-[0_24px_60px_rgba(0,0,0,0.22)] p-7 flex flex-col gap-5 transform transition-all duration-200 select-none scale-95 opacity-0">
+        <!-- Title and Subtitle -->
+        <div class="text-center pt-0.5">
+            <h3 class="text-[15px] font-bold text-[#1C1C1E] tracking-tight uppercase leading-tight font-sans">
+                CONFIGURACIÓN DE ASIGNACIÓN
+            </h3>
+            <p class="text-[12px] text-[#8E8E93] leading-snug mt-1.5 px-3 font-normal">
+                Selecciona al operador y área técnica responsable del despacho
+            </p>
+        </div>
+
+        <!-- Form Fields Container -->
+        <div class="space-y-3 pt-1">
+            <!-- Ticket Code -->
+            <div class="flex items-center">
+                <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Ticket:</label>
+                <div class="flex-1">
+                    <input id="modalTicketInput"
+                        class="w-full h-[36px] px-3.5 bg-[#EDEDF0] rounded-[10px] text-[13px] font-mono font-medium text-[#1C1C1E] border border-black/5 focus:outline-none select-none transition cursor-default"
+                        readonly tabindex="-1" type="text" value="#INC-00000">
+                </div>
+            </div>
+
+            <!-- Asunto -->
+            <div class="flex items-center">
+                <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Asunto:</label>
+                <div class="flex-1 flex items-center gap-2">
+                    <input id="modalSubjectInput"
+                        class="flex-1 h-[36px] px-3.5 bg-[#EDEDF0] rounded-[10px] text-[12px] text-[#48484A] font-normal border border-black/5 focus:outline-none select-none transition cursor-default truncate"
+                        readonly tabindex="-1" type="text" value="...">
+                    <button
+                        class="w-[36px] h-[36px] flex items-center justify-center bg-white hover:bg-[#F2F2F7] active:bg-[#E5E5EA] border border-[#D1D1D6] rounded-[10px] text-[#636366] hover:text-[#1C1C1E] shadow-xs transition flex-shrink-0 cursor-pointer"
+                        title="Ver detalles del ticket" type="button" onclick="showTicketSubjectAlert()">
+                        <svg class="w-4 h-4 text-[#636366]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Área Dropdown -->
+            <div class="flex items-center relative z-40">
+                <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Área:</label>
+                <div class="flex-1 relative">
+                    <input type="hidden" id="selectedAreaValue" value="REDES_FTTH">
+                    <details id="modalAreaDropdown" class="relative group select-none z-40">
+                        <summary
+                            class="list-none flex items-center justify-between w-full h-[36px] pl-3.5 pr-2 bg-white hover:bg-[#FAFAFC] active:bg-[#F2F2F7] rounded-[10px] border border-[#D1D1D6] shadow-xs cursor-pointer text-[13px] font-medium text-[#1C1C1E] transition focus:outline-none">
+                            <span class="truncate text-[13px] leading-none font-medium text-[#1C1C1E]"
+                                id="modalAreaText">Redes FTTH</span>
+                            <span
+                                class="flex items-center justify-center w-[20px] h-[20px] rounded-[6px] bg-[#F2F2F7] text-[#8E8E93]">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div
+                            class="absolute left-0 top-[40px] w-full bg-white rounded-[12px] border border-[#D1D1D6] shadow-[0_10px_25px_rgba(0,0,0,0.12)] p-1 z-50 space-y-0.5 text-[12px]">
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('REDES_FTTH', 'Redes FTTH');">
+                                <span class="truncate">Redes FTTH</span>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('GENERAL', 'Operaciones IP (General)');">
+                                <span class="truncate">Operaciones IP (General)</span>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('WAN', 'WAN');">
+                                <span class="truncate">WAN</span>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('GRANDES_CLIENTES', 'Grandes Clientes');">
+                                <span class="truncate">Grandes Clientes</span>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('TELEFONIA', 'Telefonía');">
+                                <span class="truncate">Telefonía</span>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('SEGURIDAD', 'Seguridad');">
+                                <span class="truncate">Seguridad</span>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalArea('TRAFICO_INALAMBRICO', 'Tráfico');">
+                                <span class="truncate">Tráfico</span>
+                            </a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Prioridad Dropdown -->
+            <div class="flex items-center relative z-30">
+                <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Prioridad:</label>
+                <div class="flex-1 relative">
+                    <input type="hidden" id="selectedPriorityValue" value="P1">
+                    <details id="modalPriorityDropdown" class="relative group select-none z-30">
+                        <summary
+                            class="list-none flex items-center justify-between w-full h-[36px] pl-3.5 pr-2 bg-white hover:bg-[#FAFAFC] active:bg-[#F2F2F7] rounded-[10px] border border-[#D1D1D6] shadow-xs cursor-pointer text-[13px] font-medium text-[#1C1C1E] transition focus:outline-none">
+                            <div class="flex items-center gap-2">
+                                <span id="modalPriorityDot" class="w-2 h-2 rounded-full bg-[#FF3B30]"></span>
+                                <span id="modalPriorityText" class="text-[13px] font-medium text-[#1C1C1E]">P1 - Crítico</span>
+                            </div>
+                            <span
+                                class="flex items-center justify-center w-[20px] h-[20px] rounded-[6px] bg-[#F2F2F7] text-[#8E8E93]">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div
+                            class="absolute left-0 top-[40px] w-full bg-white rounded-[12px] border border-[#D1D1D6] shadow-[0_10px_25px_rgba(0,0,0,0.12)] p-1 z-50 space-y-0.5 text-[12px]">
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalPriority('P1', 'P1 - Crítico', '#FF3B30');">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-[#FF3B30]"></span>
+                                    <span>P1 - Crítico</span>
+                                </div>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalPriority('P2', 'P2 - Media', '#FFBD2E');">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-[#FFBD2E]"></span>
+                                    <span>P2 - Media</span>
+                                </div>
+                            </a>
+                            <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer"
+                                onclick="event.preventDefault();setModalPriority('P3', 'P3 - Normal', '#8E8E93');">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-[#8E8E93]"></span>
+                                    <span>P3 - Normal</span>
+                                </div>
+                            </a>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Operador Dropdown -->
+            <div class="flex items-center relative z-20">
+                <label class="w-[82px] text-right text-[13px] font-medium text-[#636366] pr-3 select-none">Operador:</label>
+                <div class="flex-1 relative">
+                    <input type="hidden" id="selectedOperatorId" value="">
+                    <details id="modalOperatorDropdown" class="relative group select-none z-20">
+                        <summary
+                            class="list-none flex items-center justify-between w-full h-[36px] pl-3.5 pr-2 bg-white hover:bg-[#FAFAFC] active:bg-[#F2F2F7] rounded-[10px] border border-[#D1D1D6] shadow-xs cursor-pointer text-[13px] font-medium text-[#1C1C1E] transition focus:outline-none">
+                            <span class="truncate text-[13px] leading-none font-medium text-[#1C1C1E]"
+                                id="modalOperatorText">Seleccionar operador...</span>
+                            <span
+                                class="flex items-center justify-center w-[20px] h-[20px] rounded-[6px] bg-[#F2F2F7] text-[#8E8E93]">
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div
+                            class="absolute left-0 top-[40px] w-full bg-white rounded-[12px] border border-[#D1D1D6] shadow-[0_10px_25px_rgba(0,0,0,0.12)] p-1 z-40 space-y-0.5 text-[12px] max-h-[170px] overflow-y-auto">
+                            <% if (typeof operadores !== 'undefined' && operadores.length > 0) { %>
+                                <% operadores.forEach(function(op) { 
+                                    let parts = op.nombre.split(' ');
+                                    let inits = parts.length > 1 ? (parts[0][0] + parts[1][0]).toUpperCase() : op.nombre.substring(0, 2).toUpperCase();
+                                %>
+                                    <a class="flex items-center justify-between px-2.5 py-1.5 rounded-[6px] text-[#1C1C1E] hover:bg-[#007AFF] hover:text-white font-medium transition cursor-pointer" onclick="event.preventDefault();setModalOperator('<%= op.id %>', '<%= op.nombre %>', '<%= inits %>');">
+                                        <span class="truncate"><%= op.nombre %></span>
+                                        <span class="font-mono text-[10px] text-[#8E8E93] group-hover:text-white"><%= inits %></span>
+                                    </a>
+                                <% }); %>
+                            <% } else { %>
+                                <div class="px-2.5 py-1.5 text-[11px] text-[#8E8E93] italic">No hay operadores registrados</div>
+                            <% } %>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Actions Toolbar -->
+        <div class="flex items-center justify-between pt-3 mt-1">
+            <button id="modalUnassignBtn"
+                class="h-[34px] px-4 bg-[#FEE2E2] hover:bg-[#FECACA] active:bg-[#FCA5A5] text-[#EF4444] text-[13px] font-medium rounded-[10px] flex items-center justify-center transition cursor-pointer select-none"
+                onclick="unassignCurrentTicket()" type="button">
+                Desasignar
+            </button>
+            <div class="flex items-center gap-2.5">
+                <button
+                    class="h-[34px] px-4 bg-[#E5E5EA] hover:bg-[#DCDCE0] active:bg-[#D1D1D6] text-[#3A3A3C] text-[13px] font-medium rounded-[10px] flex items-center justify-center transition cursor-pointer select-none"
+                    onclick="closeAssignModal()" type="button">
+                    Cancelar
+                </button>
+                <button
+                    class="h-[34px] px-5 bg-[#007AFF] hover:bg-[#006DE6] active:bg-[#0062CC] text-white text-[13px] font-medium rounded-[10px] flex items-center justify-center shadow-xs transition cursor-pointer select-none"
+                    onclick="saveAssignModal()" type="button">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Modal Sheet Component -->

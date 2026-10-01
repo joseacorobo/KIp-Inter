@@ -1,0 +1,12 @@
+{
+  "watch": ["server.js", "src"],
+  "ext": "js,json",
+  "ignore": [
+    "node_modules",
+    "views/components/assets",
+    "stitch_cache",
+    ".git",
+    "prisma"
+  ],
+  "delay": "500"
+}

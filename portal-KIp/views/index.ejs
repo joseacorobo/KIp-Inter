@@ -433,9 +433,9 @@
                                 <span class="text-[11px]">Seleccionados: <strong id="selectionBadgeCount"
                                         class="text-[#007AFF] font-mono font-semibold">0</strong></span>
                                 <button id="batchAssignBtn" onclick="openBatchAssignModal()"
-                                    class="flex items-center gap-1.5 h-[24px] px-2.5 bg-[#007AFF] hover:bg-[#0062CC] text-white rounded-[6px] text-[11px] font-medium shadow-xs transition select-none disabled:opacity-40 disabled:pointer-events-none"
+                                    class="flex items-center gap-1.5 h-[24px] px-2.5 bg-[#007AFF] hover:bg-[#0062CC] text-white rounded-[6px] text-[11px] font-medium shadow-xs transition select-none disabled:opacity-40 disabled:pointer-events-none disabled:cursor-not-allowed"
                                     disabled>
-                                    <span id="batchAssignBtnText" class="leading-none">Asignar Tickets</span>
+                                    <span id="batchAssignBtnText" class="leading-none">Asignar Ticket</span>
                                     <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="2.5"
                                         viewBox="0 0 24 24">
                                         <path d="M6 9l6 6 6-6"></path>
@@ -453,7 +453,7 @@
                                 <tr>
                                     <th class="finder-th py-2 px-3 w-[40px] text-center">
                                         <div class="flex items-center justify-center"><input id="selectAllCheckbox"
-                                                onchange="toggleSelectAll(this)" type="checkbox"
+                                                onchange="TableSelectionManager.toggleAll(this.checked)" type="checkbox"
                                                 class="w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
                                         </div>
                                     </th>
@@ -503,7 +503,7 @@
                                     <tr id="row-<%= ticket.codigo_incidencia %>" class="ticket-row hover:bg-[#F9F9FA] group transition-colors" data-area="<%= area %>" data-priority="<%= prio %>" data-date="<%= ticket.createdAt ? new Date(ticket.createdAt).getTime() : 0 %>">
                                         <td class="py-2 px-3 align-middle text-center w-[40px]">
                                             <div class="flex items-center justify-center">
-                                                <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" onchange="updateSelectionCount()" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
+                                                <input type="checkbox" data-code="<%= ticket.codigo_incidencia %>" onchange="TableSelectionManager.handleCheckboxChange(this)" class="row-checkbox w-3.5 h-3.5 rounded text-[#007AFF] border-[#D1D1D6] focus:ring-0 focus:outline-none cursor-pointer">
                                             </div>
                                         </td>
                                         <td class="py-2 px-3 align-middle whitespace-nowrap">
@@ -997,10 +997,7 @@
                             updateRowDisplay(code, operatorName, true, operatorId, areaDesignada, prioridad);
                         });
                         showNotification('Asignación Masiva', `Se asignaron ${ticketCodes.length} tickets a ${operatorName}`, currentOperatorInitials);
-                        document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = false);
-                        const masterCb = document.getElementById('selectAllCheckbox');
-                        if (masterCb) masterCb.checked = false;
-                        updateSelectionCount();
+                        TableSelectionManager.clear();
                         updateKPIStats();
                     } else {
                         alert('Error: ' + result.error);
@@ -1208,6 +1205,7 @@
 
             const counter = document.getElementById('activeTicketsCounter');
             if (counter) counter.textContent = visibleCount;
+            if (typeof TableSelectionManager !== 'undefined') TableSelectionManager.sync();
         }
 
         function filterByArea(areaCode, label, elem) {
@@ -1285,38 +1283,198 @@
             if (prioDd && !prioDd.contains(e.target)) prioDd.removeAttribute('open');
         });
 
-        // Manejo de Selección Múltiple
-        function updateSelectionCount() {
-            const checkboxes = document.querySelectorAll('.row-checkbox:checked');
-            const count = checkboxes.length;
-            const badge = document.getElementById('selectionBadgeCount');
-            const batchBtn = document.getElementById('batchAssignBtn');
-            const batchText = document.getElementById('batchAssignBtnText');
+        // ==========================================
+        // GESTIÓN DE ESTADO EN EL FRONTEND (DOM)
+        // Selección de Tickets, Conteo en Tiempo Real y Control de Botón Asignar
+        // ==========================================
+        const TableSelectionManager = {
+            selectedCodes: new Set(),
 
-            if (badge) badge.textContent = count;
-            if (batchBtn) {
-                if (count > 0) {
-                    batchBtn.disabled = false;
-                    batchText.textContent = `Asignar (${count}) tickets...`;
+            init() {
+                const tableBody = document.getElementById('ticketTableBody');
+                const masterCheckbox = document.getElementById('selectAllCheckbox');
+
+                // 1. Escuchar eventos de cambio en cada checkbox de fila
+                if (tableBody) {
+                    tableBody.addEventListener('change', (e) => {
+                        const cb = e.target.closest('.row-checkbox');
+                        if (cb) {
+                            this.handleCheckboxChange(cb);
+                        }
+                    });
+
+                    // Permitir seleccionar haciendo clic en cualquier parte de la fila (excepto enlaces o botones interactivos)
+                    tableBody.addEventListener('click', (e) => {
+                        if (e.target.closest('a, button, input[type="checkbox"], select, details')) return;
+                        const row = e.target.closest('.ticket-row');
+                        if (row) {
+                            const cb = row.querySelector('.row-checkbox');
+                            if (cb) {
+                                cb.checked = !cb.checked;
+                                this.handleCheckboxChange(cb);
+                            }
+                        }
+                    });
+                }
+
+                // 2. Escuchar el checkbox maestro
+                if (masterCheckbox) {
+                    masterCheckbox.addEventListener('change', () => {
+                        this.toggleAll(masterCheckbox.checked);
+                    });
+                }
+
+                // Sincronizar estado inicial
+                this.sync();
+            },
+
+            handleCheckboxChange(cb) {
+                const code = cb.getAttribute('data-code');
+                if (!code) return;
+
+                if (cb.checked) {
+                    this.selectedCodes.add(code);
                 } else {
-                    batchBtn.disabled = true;
-                    batchText.textContent = 'Asignar Tickets';
+                    this.selectedCodes.delete(code);
+                }
+
+                this.updateRowStyle(cb);
+                this.sync();
+            },
+
+            updateRowStyle(cb) {
+                const row = cb.closest('.ticket-row');
+                if (!row) return;
+                if (cb.checked) {
+                    row.classList.add('bg-[#007AFF]/[0.08]', 'font-medium');
+                    row.classList.remove('hover:bg-[#F9F9FA]');
+                } else {
+                    row.classList.remove('bg-[#007AFF]/[0.08]', 'font-medium');
+                    row.classList.add('hover:bg-[#F9F9FA]');
+                }
+            },
+
+            toggleAll(selectAll) {
+                // Solo seleccionar las filas visibles (respetando filtros activos de área/prioridad/búsqueda)
+                const visibleRows = Array.from(document.querySelectorAll('.ticket-row')).filter(r => r.style.display !== 'none');
+                
+                visibleRows.forEach(row => {
+                    const cb = row.querySelector('.row-checkbox');
+                    if (cb) {
+                        cb.checked = selectAll;
+                        const code = cb.getAttribute('data-code');
+                        if (code) {
+                            if (selectAll) {
+                                this.selectedCodes.add(code);
+                            } else {
+                                this.selectedCodes.delete(code);
+                            }
+                        }
+                        this.updateRowStyle(cb);
+                    }
+                });
+
+                this.sync();
+            },
+
+            clear() {
+                this.selectedCodes.clear();
+                document.querySelectorAll('.row-checkbox').forEach(cb => {
+                    cb.checked = false;
+                    this.updateRowStyle(cb);
+                });
+                const masterCheckbox = document.getElementById('selectAllCheckbox');
+                if (masterCheckbox) {
+                    masterCheckbox.checked = false;
+                    masterCheckbox.indeterminate = false;
+                }
+                this.sync();
+            },
+
+            sync() {
+                const count = this.selectedCodes.size;
+                const badge = document.getElementById('selectionBadgeCount');
+                const batchBtn = document.getElementById('batchAssignBtn');
+                const batchText = document.getElementById('batchAssignBtnText');
+                const masterCheckbox = document.getElementById('selectAllCheckbox');
+
+                // 1. Conteo en tiempo real
+                if (badge) {
+                    badge.textContent = count;
+                }
+
+                // 2. Habilitar o deshabilitar el botón superior "Asignar Ticket"
+                if (batchBtn && batchText) {
+                    if (count > 0) {
+                        batchBtn.disabled = false;
+                        batchBtn.removeAttribute('disabled');
+                        batchBtn.classList.remove('opacity-40', 'cursor-not-allowed', 'pointer-events-none');
+                        batchBtn.classList.add('cursor-pointer', 'shadow-sm', 'hover:brightness-105', 'active:scale-95');
+                        
+                        // Formato de texto según singular o plural
+                        batchText.textContent = count === 1 ? 'Asignar Ticket (1)' : `Asignar Tickets (${count})`;
+                    } else {
+                        batchBtn.disabled = true;
+                        batchBtn.setAttribute('disabled', 'true');
+                        batchBtn.classList.add('opacity-40', 'cursor-not-allowed', 'pointer-events-none');
+                        batchBtn.classList.remove('cursor-pointer', 'shadow-sm', 'hover:brightness-105', 'active:scale-95');
+                        batchText.textContent = 'Asignar Ticket';
+                    }
+                }
+
+                // 3. Sincronizar estado del checkbox maestro (checked / indeterminate)
+                if (masterCheckbox) {
+                    const visibleCheckboxes = Array.from(document.querySelectorAll('.ticket-row'))
+                        .filter(r => r.style.display !== 'none')
+                        .map(r => r.querySelector('.row-checkbox'))
+                        .filter(Boolean);
+
+                    const visibleCount = visibleCheckboxes.length;
+                    const checkedVisibleCount = visibleCheckboxes.filter(cb => cb.checked).length;
+
+                    if (visibleCount === 0 || checkedVisibleCount === 0) {
+                        masterCheckbox.checked = false;
+                        masterCheckbox.indeterminate = false;
+                    } else if (checkedVisibleCount === visibleCount) {
+                        masterCheckbox.checked = true;
+                        masterCheckbox.indeterminate = false;
+                    } else {
+                        masterCheckbox.checked = false;
+                        masterCheckbox.indeterminate = true;
+                    }
                 }
             }
+        };
+
+        // Retrocompatibilidad con llamadas inline existentes
+        function updateSelectionCount() {
+            TableSelectionManager.selectedCodes.clear();
+            document.querySelectorAll('.row-checkbox:checked').forEach(cb => {
+                const code = cb.getAttribute('data-code');
+                if (code) TableSelectionManager.selectedCodes.add(code);
+                TableSelectionManager.updateRowStyle(cb);
+            });
+            TableSelectionManager.sync();
         }
 
         function toggleSelectAll(masterCheckbox) {
-            const checkboxes = document.querySelectorAll('.row-checkbox');
-            checkboxes.forEach(cb => cb.checked = masterCheckbox.checked);
-            updateSelectionCount();
+            TableSelectionManager.toggleAll(masterCheckbox.checked);
         }
 
         // Asignación Masiva
         function openBatchAssignModal() {
-            const checked = document.querySelectorAll('.row-checkbox:checked');
-            if (checked.length === 0) return;
-            const codes = Array.from(checked).map(cb => cb.getAttribute('data-code'));
-            openAssignModal(codes.join(', '), `Lote de ${codes.length} incidencias seleccionadas`, 'REDES_FTTH', '', '');
+            const codes = Array.from(TableSelectionManager.selectedCodes);
+            if (codes.length === 0) return;
+            const label = codes.length === 1 
+                ? `Incidencia seleccionada (${codes[0]})` 
+                : `Lote de ${codes.length} incidencias seleccionadas`;
+            openAssignModal(codes.join(', '), label, 'REDES_FTTH', '', '');
+        }
+
+        // Auto-inicialización
+        document.addEventListener('DOMContentLoaded', () => TableSelectionManager.init());
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            TableSelectionManager.init();
         }
 
         function handleBackdropClick(event) {

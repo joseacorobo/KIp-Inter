@@ -79,7 +79,7 @@
         <!-- Componente 5: Modal Sheet de Asignación -->
         <%- include('components/macos27/assign-modal') %>
 
-        <!-- Componente 6: Modal Sheet de Nuevo Incidente -->
+        <!-- Componente 6: Modal Sheet de Nuevo Ticket -->
         <%- include('components/macos27/new-incident-modal') %>
 
         <!-- Componente 7: Notificación Toast Liquid Glass -->
@@ -303,7 +303,7 @@
         }
 
         // ==========================================
-        // 2. Control de Nuevo Incidente
+        // 2. Control de Nuevo Ticket
         // ==========================================
         function openNewIncidentModal() {
             const overlay = document.getElementById('newIncidentModalOverlay');
@@ -341,7 +341,7 @@
             event.preventDefault();
             const submitBtn = document.getElementById('submitNewIncidentBtn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Guardando...</span>';
+            submitBtn.innerHTML = 'Guardando...';
 
             const asunto = document.getElementById('newIncSubject').value;
             const descripcion = document.getElementById('newIncDescription').value;
@@ -365,17 +365,17 @@
                 const result = await response.json();
                 if (result.success && result.ticket) {
                     closeNewIncidentModal();
-                    showNotification('Incidente Creado', `Se registró ${result.ticket.codigo_incidencia} exitosamente`, 'NOC');
+                    showNotification('Ticket Creado', `Se registró ${result.ticket.codigo_incidencia} exitosamente`, 'NOC');
                     setTimeout(() => window.location.reload(), 800);
                 } else {
-                    alert('Error al crear incidente: ' + (result.error || 'Desconocido'));
+                    alert('Error al crear ticket: ' + (result.error || 'Desconocido'));
                 }
             } catch (err) {
                 console.error(err);
-                alert('Error de conexión al registrar incidente');
+                alert('Error de conexión al registrar ticket');
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>Crear Incidente</span>';
+                submitBtn.innerHTML = 'Crear Ticket';
             }
         }
 

@@ -1,0 +1,11 @@
+/* Materials */
+
+position: relative;
+width: 100px;
+height: 100px;
+
+/* Materials/Ultrathick */
+background: linear-gradient(0deg, rgba(236, 236, 236, 0.88), rgba(236, 236, 236, 0.88)), #333333;
+background-blend-mode: normal, plus-lighter;
+backdrop-filter: blur(30px);
+/* Note: backdrop-filter has minimal browser support */

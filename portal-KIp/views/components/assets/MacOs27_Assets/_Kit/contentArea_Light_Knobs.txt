@@ -1,0 +1,7 @@
+/* Content Area/Light/Knobs - Sliders/01 - Idle */
+
+position: relative;
+width: 20px;
+height: 20px;
+
+background: #FFFFFF;

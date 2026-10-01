@@ -1,0 +1,17 @@
+/* Overlay */
+
+position: relative;
+width: 100px;
+height: 100px;
+
+
+
+/* Rectangle 1 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: rgba(171, 171, 171, 0.6);

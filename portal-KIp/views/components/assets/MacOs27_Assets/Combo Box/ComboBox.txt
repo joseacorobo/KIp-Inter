@@ -1,0 +1,152 @@
+/* Combo Box */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 2px 2px 2px 0px;
+isolation: isolate;
+
+position: relative;
+width: 100px;
+height: 24px;
+
+
+
+/* Text Field */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 28px 0px 8px;
+isolation: isolate;
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* BG */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+border-radius: 6px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Border */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: #FFFFFF;
+background-blend-mode: multiply;
+box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+border-radius: 6px;
+
+
+/* Fill */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: #FFFFFF;
+border-radius: 6px;
+
+
+/* Placeholder */
+
+width: 64px;
+height: 16px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Combo Box Button */
+
+width: 24px;
+height: 20px;
+
+border-radius: 4.5px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Button BG */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.08);
+border-radius: 0px;
+
+
+/* Label */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 16px;
+/* or 145% */
+display: flex;
+align-items: center;
+text-align: center;
+font-feature-settings: 'ss15' on;
+
+color: rgba(0, 0, 0, 0.85);
+

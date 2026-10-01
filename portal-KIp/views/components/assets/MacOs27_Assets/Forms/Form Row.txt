@@ -1,0 +1,119 @@
+/* Form Row */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px 0px;
+gap: 16px;
+
+position: relative;
+width: 380px;
+height: 42px;
+min-height: 42px;
+
+border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+
+/* Leading Accessory */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 2px;
+
+width: 329px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Title */
+
+width: 37px;
+height: 16px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Subtitle */
+
+display: none;
+width: 42px;
+height: 14px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 11px;
+line-height: 14px;
+/* identical to box height, or 127% */
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Right Accessory */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 8px;
+
+width: 35px;
+height: 16px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 35px;
+height: 16px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;

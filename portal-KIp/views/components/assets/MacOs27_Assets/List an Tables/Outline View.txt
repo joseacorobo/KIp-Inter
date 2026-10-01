@@ -1,0 +1,4853 @@
+/* Outline View */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 3px;
+
+position: relative;
+width: 900px;
+height: 450px;
+
+background: #FFFFFF;
+
+
+/* Column Header */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 4px 0px 5px;
+
+width: 900px;
+height: 28px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* _Column Headers */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 6px 0px 50px;
+
+width: 480px;
+height: 19px;
+
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Label */
+
+width: 411px;
+height: 19px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 11px;
+line-height: 14px;
+/* or 127% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Sort Order Indicator */
+
+width: 13px;
+height: 19px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 9px;
+line-height: 13px;
+/* or 144% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+
+/* _Column Headers */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 6px 0px 8px;
+
+width: 140px;
+height: 19px;
+
+border-left: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 126px;
+height: 19px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 11px;
+line-height: 14px;
+/* or 127% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* _Column Headers */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 6px 0px 8px;
+
+width: 140px;
+height: 19px;
+
+border-left: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 126px;
+height: 19px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 11px;
+line-height: 14px;
+/* or 127% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* _Column Headers */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 6px 0px 8px;
+
+width: 140px;
+height: 19px;
+
+border-left: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 126px;
+height: 19px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 11px;
+line-height: 14px;
+/* or 127% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+width: 900px;
+height: 550px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Group Title */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 24px 8px 7px 50px;
+gap: 16px;
+
+width: 900px;
+height: 45px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 842px;
+height: 14px;
+
+/* Subheadline/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 11px;
+line-height: 14px;
+/* identical to box height, or 127% */
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 6;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Group Title */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 24px 8px 7px 50px;
+gap: 16px;
+
+width: 900px;
+height: 45px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 7;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 842px;
+height: 14px;
+
+/* Subheadline/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 11px;
+line-height: 14px;
+/* identical to box height, or 127% */
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 8;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: #0165E2;
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 480px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+/* White */
+color: #FFFFFF;
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 429px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+/* White */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+/* White */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+/* White */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+/* White */
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 15px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 9;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 465px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 414px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 30px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 10;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 450px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 399px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 45px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 11;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 435px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Disclosure */
+
+width: 5px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* 􀆈 */
+
+position: absolute;
+left: -20%;
+right: 20%;
+top: 0%;
+bottom: 0%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* or 100% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Folder */
+
+width: 14px;
+height: 14px;
+
+background: url(image.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 384px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 60px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 12;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 420px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Image */
+
+width: 14px;
+height: 14px;
+
+background: url(Thumbnail.png);
+box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.25);
+border-radius: 2px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 369px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 60px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 13;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 420px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Image */
+
+width: 14px;
+height: 14px;
+
+background: url(Thumbnail.png);
+box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.25);
+border-radius: 2px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 369px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 60px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 14;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 420px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Image */
+
+width: 14px;
+height: 14px;
+
+background: url(Thumbnail.png);
+box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.25);
+border-radius: 2px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 369px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 60px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 15;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 420px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Image */
+
+width: 14px;
+height: 14px;
+
+background: url(Thumbnail.png);
+box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.25);
+border-radius: 2px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 369px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 60px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 16;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Primary */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px 0px 0px 16px;
+gap: 4px;
+
+width: 420px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 1;
+z-index: 1;
+
+
+/* Chevron */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+width: 9px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 2px;
+gap: 10px;
+
+width: 18px;
+height: 18px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Image */
+
+width: 14px;
+height: 14px;
+
+background: url(Thumbnail.png);
+box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25), inset 0px 0px 0px 1px rgba(255, 255, 255, 0.25);
+border-radius: 2px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Label */
+
+width: 369px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 1 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+z-index: 2;
+
+
+/* Label */
+
+width: 124px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 2 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+text-align: right;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Secondary 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+padding: 0px 16px 0px 8px;
+
+width: 140px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+z-index: 4;
+
+
+/* Label */
+
+width: 116px;
+height: 20px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 13px;
+line-height: 16px;
+/* or 123% */
+display: flex;
+align-items: center;
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 17;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 18;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 19;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 20;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 21;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 22;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 23;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* Table Rows - Blank */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+isolation: isolate;
+
+width: 900px;
+height: 20px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 24;
+align-self: stretch;
+flex-grow: 0;
+
+
+/* BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 4px;
+
+position: absolute;
+left: 10px;
+right: 10px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;

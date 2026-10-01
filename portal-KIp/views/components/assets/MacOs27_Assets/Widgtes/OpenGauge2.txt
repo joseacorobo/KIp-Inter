@@ -1,0 +1,121 @@
+/* Lock Screen Widget / Circular / Open Gauge 3 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 7px;
+
+position: relative;
+width: 72px;
+height: 72px;
+
+backdrop-filter: blur(20px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Frame */
+
+width: 58px;
+height: 59px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Gauge */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: -0.33%;
+bottom: 23.26%;
+
+/* Vibrant Fills/Dark/Vibrant Tertiary */
+background: #121212;
+background-blend-mode: plus-lighter;
+
+
+/* Outer Ellipse */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: -0.33%;
+bottom: 2.02%;
+
+border: 6px solid #000000;
+backdrop-filter: blur(20px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Current Value Indicator */
+
+position: absolute;
+left: 61.1%;
+right: 22.12%;
+top: -0.85%;
+bottom: 84.36%;
+
+background: #FFFFFF;
+transform: matrix(0.5, -0.87, -0.87, -0.5, 0, 0);
+
+
+/* Current Value Indicator */
+
+position: absolute;
+left: 65.89%;
+right: 24.34%;
+top: 3.85%;
+bottom: 86.54%;
+
+/* Vibrant Labels/Dark/Vibrant Secondary */
+background: #999999;
+background-blend-mode: plus-lighter;
+transform: matrix(0.5, -0.87, -0.87, -0.5, 0, 0);
+
+
+/* Symbol */
+
+position: absolute;
+left: 24.14%;
+right: 24.14%;
+top: 74.58%;
+bottom: 1.7%;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 12px;
+line-height: 14px;
+text-align: center;
+
+/* Vibrant Labels/Dark/Vibrant Secondary */
+color: #999999;
+
+
+
+/* Value */
+
+position: absolute;
+width: 28px;
+height: 29px;
+left: calc(50% - 28px/2);
+top: calc(50% - 29px/2 - 2.5px);
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 24.5px;
+line-height: 29px;
+letter-spacing: -1px;
+
+/* Vibrant Labels/Dark/Vibrant Secondary */
+color: #999999;
+

@@ -1,0 +1,132 @@
+/* Circular - Determinate */
+
+position: relative;
+width: 16px;
+height: 16px;
+
+
+
+/* Track */
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 0px;
+top: 0px;
+
+
+
+/* Track */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* Outer Oval */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* Inner Oval */
+
+position: absolute;
+left: 31.25%;
+right: 31.25%;
+top: 31.25%;
+bottom: 31.25%;
+
+background: #D9D9D9;
+
+
+/* Unfilled */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: rgba(0, 0, 0, 0.85);
+opacity: 0.1;
+border-radius: 100px;
+
+
+/* Track - Outline */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+border: 0.5px solid rgba(0, 0, 0, 0.07);
+border-radius: 100px;
+
+
+/* Outer Oval */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: #D9D9D9;
+
+
+/* Inner Oval */
+
+position: absolute;
+height: 6px;
+left: 31.25%;
+right: 31.25%;
+top: calc(50% - 6px/2);
+
+background: #D9D9D9;
+
+
+/* Fill */
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 0px;
+top: 0px;
+
+
+
+/* Mask */
+
+position: absolute;
+left: 31.25%;
+right: 31.25%;
+top: 31.25%;
+bottom: 31.25%;
+
+border: 5px solid #000000;
+border-radius: 10px;
+
+
+/* Fill */
+
+position: absolute;
+width: 16px;
+height: 16px;
+left: 0px;
+top: 0px;
+
+background: #0088FF;
+border-radius: 100px;

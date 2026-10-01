@@ -1,0 +1,20 @@
+/* Image Well */
+
+position: relative;
+width: 30px;
+height: 30px;
+
+background: rgba(0, 0, 0, 0.02);
+box-shadow: 0px 0px 0px 0.5px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 1px #FFFFFF, inset 0px 0px 0px 1.5px rgba(0, 0, 0, 0.05);
+border-radius: 3px;
+
+
+/* Image */
+
+position: absolute;
+left: 10%;
+right: 10%;
+top: 10%;
+bottom: 10%;
+
+background: url(Image.png);

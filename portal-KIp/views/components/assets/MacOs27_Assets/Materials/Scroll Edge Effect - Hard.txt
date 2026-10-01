@@ -1,0 +1,13 @@
+/* Scroll Edge Effect - Hard */
+
+box-sizing: border-box;
+
+position: relative;
+width: 200px;
+height: 200px;
+
+background: rgba(255, 255, 255, 0.85);
+border-bottom: 0.67px solid rgba(0, 0, 0, 0.05);
+backdrop-filter: blur(3px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 0px;

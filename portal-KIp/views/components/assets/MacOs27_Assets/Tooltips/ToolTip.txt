@@ -1,0 +1,80 @@
+/* Tooltip */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 3px 6px 2px;
+isolation: isolate;
+
+position: relative;
+width: 49px;
+height: 18px;
+
+filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.4)) drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.2));
+backdrop-filter: blur(10px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Materials */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+/* Materials/Ultrathick */
+background: linear-gradient(0deg, rgba(236, 236, 236, 0.88), rgba(236, 236, 236, 0.88)), #333333;
+background-blend-mode: normal, plus-lighter;
+backdrop-filter: blur(30px);
+/* Note: backdrop-filter has minimal browser support */
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+z-index: 0;
+
+
+/* Text */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 37px;
+height: 13px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+
+
+/* Label */
+
+width: 37px;
+height: 13px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 11px;
+line-height: 13px;
+/* identical to box height, or 118% */
+
+color: #1A1A1A;
+
+mix-blend-mode: plus-darker;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;

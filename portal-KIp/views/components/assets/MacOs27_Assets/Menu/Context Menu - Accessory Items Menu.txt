@@ -1,0 +1,164 @@
+/* Context Menu - Accessory Items Menu */
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 12px;
+gap: 16px;
+
+position: relative;
+width: 248px;
+height: 68px;
+
+/* Windows/Glass */
+background: rgba(128, 128, 128, 0.3);
+background-blend-mode: luminosity;
+/* Blur + Shadow Small */
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(50px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 100px;
+
+
+/* Button 1 */
+
+width: 44px;
+height: 44px;
+
+border-radius: 100px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Symbol */
+
+position: absolute;
+width: 26px;
+height: 22px;
+left: calc(50% - 26px/2);
+top: calc(50% - 22px/2);
+
+/* Body */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 17px;
+line-height: 22px;
+/* identical to box height, or 129% */
+text-align: center;
+
+/* Labels/Primary */
+color: rgba(255, 255, 255, 0.96);
+
+
+
+/* Button 2 */
+
+width: 44px;
+height: 44px;
+
+border-radius: 100px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Symbol */
+
+position: absolute;
+width: 22px;
+height: 22px;
+left: calc(50% - 22px/2);
+top: calc(50% - 22px/2);
+
+/* Body */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 17px;
+line-height: 22px;
+/* identical to box height, or 129% */
+text-align: center;
+
+/* Labels/Primary */
+color: rgba(255, 255, 255, 0.96);
+
+
+
+/* Button 3 */
+
+width: 44px;
+height: 44px;
+
+border-radius: 100px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Symbol */
+
+position: absolute;
+width: 22px;
+height: 22px;
+left: calc(50% - 22px/2);
+top: calc(50% - 22px/2);
+
+/* Body */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 17px;
+line-height: 22px;
+/* identical to box height, or 129% */
+text-align: center;
+
+/* Labels/Primary */
+color: rgba(255, 255, 255, 0.96);
+
+
+
+/* Button 4 */
+
+width: 44px;
+height: 44px;
+
+border-radius: 100px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Symbol */
+
+position: absolute;
+width: 19px;
+height: 22px;
+left: calc(50% - 19px/2 + 0.5px);
+top: calc(50% - 22px/2);
+
+/* Body */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 17px;
+line-height: 22px;
+/* identical to box height, or 129% */
+text-align: center;
+
+/* Labels/Primary */
+color: rgba(255, 255, 255, 0.96);
+

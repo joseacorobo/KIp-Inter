@@ -1,0 +1,9 @@
+/* Group Box */
+
+position: relative;
+width: 200px;
+height: 200px;
+
+background: rgba(0, 0, 0, 0.03);
+opacity: 0.5;
+border-radius: 12px;

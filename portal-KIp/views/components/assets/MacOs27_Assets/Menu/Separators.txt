@@ -1,0 +1,18 @@
+/* Separators */
+
+position: relative;
+width: 100px;
+height: 11px;
+
+
+
+/* Separator */
+
+position: absolute;
+height: 1px;
+left: -1.33px;
+right: -1.33px;
+top: calc(50% - 1px/2);
+
+background: #E6E6E6;
+mix-blend-mode: plus-darker;

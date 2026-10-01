@@ -1,0 +1,630 @@
+/* Menu Bar */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 5px 20px 5px 10px;
+gap: 98px;
+
+position: relative;
+width: 1008px;
+height: 34px;
+
+
+
+/* Group - Leading */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+margin: 0 auto;
+width: 421px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Apple Logo */
+
+width: 33px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Apple Logo */
+
+position: absolute;
+width: 15px;
+height: 20px;
+left: calc(50% - 15px/2);
+top: calc(50% - 20px/2 - 1.5px);
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 16.3px;
+line-height: 20px;
+/* identical to box height, or 123% */
+text-align: center;
+
+color: #FFFFFF;
+
+
+
+/* App Name */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px 4px 11px;
+gap: 10px;
+
+width: 90px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* App Name */
+
+width: 70px;
+height: 16px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 860;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Menu Items */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+
+width: 298px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* File */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 41px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 23px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Edit */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 43px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 25px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* View */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 49px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 31px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Menu Item */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 47px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 29px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Window */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 70px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 52px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Help */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 48px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 5;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 30px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Frame - Trailing */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+padding: 0px;
+
+margin: 0 auto;
+width: 234.65px;
+height: 24px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Wifi */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 34.5px;
+height: 20px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+width: 16.5px;
+height: 12px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Spotlight */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 34px;
+height: 24px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 16px;
+height: 16px;
+
+/* Body/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13px;
+line-height: 16px;
+/* identical to box height, or 123% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Control Center */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 4px 9px;
+gap: 10px;
+
+width: 31.15px;
+height: 21.41px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+
+
+/* Union */
+
+width: 13.15px;
+height: 13.41px;
+
+background: #FFFFFF;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Vector */
+
+position: absolute;
+left: 28.89%;
+right: 28.89%;
+top: 53.81%;
+bottom: 18.68%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 28.89%;
+right: 28.93%;
+top: 18.68%;
+bottom: 51.05%;
+
+background: #000000;
+
+
+/* Vector */
+
+position: absolute;
+left: 34.8%;
+right: 49.37%;
+top: 27%;
+bottom: 59.36%;
+
+background: #000000;
+
+
+/* Date and Time */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px 0px 0px 9px;
+gap: 8px;
+
+width: 135px;
+height: 16px;
+
+border-radius: 4px;
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 65px;
+height: 16px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13.1px;
+line-height: 16px;
+/* identical to box height, or 122% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Menu Label */
+
+width: 53px;
+height: 16px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 13.1px;
+line-height: 16px;
+/* identical to box height, or 122% */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;

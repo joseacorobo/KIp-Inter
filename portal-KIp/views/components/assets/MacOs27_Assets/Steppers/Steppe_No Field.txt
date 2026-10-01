@@ -1,0 +1,149 @@
+/* Stepper/No Field */
+
+position: relative;
+width: 20px;
+height: 24px;
+
+border-radius: 6px;
+
+
+/* Button BG */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+
+/* BG - Top */
+
+width: 20px;
+height: 12px;
+
+background: rgba(0, 0, 0, 0.08);
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* BG - Bottom */
+
+width: 20px;
+height: 12px;
+
+background: rgba(0, 0, 0, 0.08);
+border-radius: 0px;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* Separator */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+gap: 10px;
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+
+/* Separator */
+
+width: 14px;
+height: 1px;
+
+background: rgba(0, 0, 0, 0.12);
+border-radius: 10px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Chevrons */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+
+
+/* 􀆇 */
+
+width: 20px;
+height: 12px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 12px;
+line-height: 14px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+
+
+/* 􀆈 */
+
+width: 20px;
+height: 12px;
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 12px;
+line-height: 14px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(0, 0, 0, 0.85);
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 1;

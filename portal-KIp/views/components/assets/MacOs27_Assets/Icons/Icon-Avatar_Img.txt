@@ -1,0 +1,61 @@
+/* Icons - Avatar */
+
+position: relative;
+width: 128px;
+height: 128px;
+
+background: url(Alejandra Delgado.png);
+border-radius: 100px;
+
+
+/* App Badge */
+
+position: absolute;
+width: 36px;
+height: 36px;
+left: 94px;
+bottom: -2px;
+
+/* Colors/Red */
+background: #FF4245;
+border-radius: 100px;
+
+
+/* App Icon */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+background: url(AirDrop.png);
+border-radius: 500px;
+
+
+/* Notification Badge */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+visibility: hidden;
+width: 36px;
+height: 36px;
+right: -2px;
+top: -2px;
+
+/* Colors/Red */
+background: #FF4245;
+border-radius: 100px;

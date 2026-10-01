@@ -1,0 +1,36 @@
+/* BG */
+
+position: relative;
+width: 100px;
+height: 100px;
+
+backdrop-filter: blur(40px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Luminosity */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: #DAE6F2;
+mix-blend-mode: luminosity;
+opacity: 0.92;
+backdrop-filter: blur(60px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Saturation */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: #808080;
+background-blend-mode: saturation;
+opacity: 0.85;

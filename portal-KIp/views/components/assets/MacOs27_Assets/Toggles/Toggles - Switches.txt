@@ -1,0 +1,44 @@
+/* Toggles - Switches */
+
+position: relative;
+width: 54px;
+height: 24px;
+
+border-radius: 1000px;
+
+
+/* Track */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: rgba(0, 0, 0, 0.85);
+opacity: 0.1;
+border-radius: 100px;
+
+
+/* Knob */
+
+position: absolute;
+width: 54px;
+left: 0px;
+top: 0px;
+bottom: 0px;
+
+border-radius: 100px;
+
+
+/* Knob */
+
+position: absolute;
+width: 32px;
+height: 20px;
+right: 20px;
+top: calc(50% - 20px/2);
+
+background: #FFFFFF;
+box-shadow: 0px 3px 36px rgba(0, 0, 0, 0.05);
+border-radius: 100px;

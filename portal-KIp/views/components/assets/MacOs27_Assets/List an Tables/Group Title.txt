@@ -1,0 +1,35 @@
+/* Group Title */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 24px 8px 7px 50px;
+gap: 16px;
+
+position: relative;
+width: 150px;
+height: 45px;
+
+
+
+/* Label */
+
+width: 92px;
+height: 14px;
+
+/* Subheadline/Emphasized */
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 590;
+font-size: 11px;
+line-height: 14px;
+/* identical to box height, or 127% */
+
+color: rgba(0, 0, 0, 0.5);
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 1;

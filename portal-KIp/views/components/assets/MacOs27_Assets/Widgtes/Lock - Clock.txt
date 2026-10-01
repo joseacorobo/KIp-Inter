@@ -1,0 +1,422 @@
+/* Lock Screen Widget - Clock */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 7px;
+
+position: relative;
+width: 72px;
+height: 72px;
+
+backdrop-filter: blur(20px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Clock */
+
+width: 58px;
+height: 58px;
+
+/* Vibrant Fills/Dark/Vibrant Tertiary */
+background: #121212;
+background-blend-mode: plus-lighter;
+backdrop-filter: blur(20px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 1000px;
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+/* Hands and Ticks */
+
+position: absolute;
+width: 52px;
+height: 52px;
+left: 3px;
+top: 3px;
+
+
+
+/* Combined Shape */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+/* Vibrant Labels/Dark/Vibrant Primary */
+background: #FFFFFF;
+background-blend-mode: plus-lighter;
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 4 */
+
+position: absolute;
+left: 48.75%;
+right: 48.75%;
+top: 0%;
+bottom: 90%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 6 */
+
+position: absolute;
+left: 48.75%;
+right: 48.75%;
+top: 90%;
+bottom: 0%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 8 */
+
+position: absolute;
+left: 24.32%;
+right: 69.32%;
+top: 6.47%;
+bottom: 84.42%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 10 */
+
+position: absolute;
+left: 69.32%;
+right: 24.32%;
+top: 84.42%;
+bottom: 6.47%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 14 */
+
+position: absolute;
+left: 84.42%;
+right: 6.47%;
+top: 69.32%;
+bottom: 24.32%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 16 */
+
+position: absolute;
+left: 0%;
+right: 90%;
+top: 48.75%;
+bottom: 48.75%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 18 */
+
+position: absolute;
+left: 90%;
+right: 0%;
+top: 48.75%;
+bottom: 48.75%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 20 */
+
+position: absolute;
+left: 6.48%;
+right: 84.42%;
+top: 69.32%;
+bottom: 24.32%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 22 */
+
+position: absolute;
+left: 84.42%;
+right: 6.47%;
+top: 24.32%;
+bottom: 69.32%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 24 */
+
+position: absolute;
+left: 24.32%;
+right: 69.32%;
+top: 84.42%;
+bottom: 6.47%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 26 */
+
+position: absolute;
+left: 69.32%;
+right: 24.32%;
+top: 6.47%;
+bottom: 84.42%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 28 */
+
+position: absolute;
+left: 36.1%;
+right: 60.68%;
+top: 1.63%;
+bottom: 93.39%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 30 */
+
+position: absolute;
+left: 60.69%;
+right: 36.1%;
+top: 93.39%;
+bottom: 1.63%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 32 */
+
+position: absolute;
+left: 14.22%;
+right: 81.39%;
+top: 14.21%;
+bottom: 81.39%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 34 */
+
+position: absolute;
+left: 81.39%;
+right: 14.21%;
+top: 81.39%;
+bottom: 14.21%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 36 */
+
+position: absolute;
+left: 1.63%;
+right: 93.39%;
+top: 36.1%;
+bottom: 60.68%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 38 */
+
+position: absolute;
+left: 93.39%;
+right: 1.63%;
+top: 60.68%;
+bottom: 36.1%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 40 */
+
+position: absolute;
+left: 1.63%;
+right: 93.39%;
+top: 60.69%;
+bottom: 36.1%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 42 */
+
+position: absolute;
+left: 93.39%;
+right: 1.63%;
+top: 36.1%;
+bottom: 60.69%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 44 */
+
+position: absolute;
+left: 14.21%;
+right: 81.39%;
+top: 81.39%;
+bottom: 14.21%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 46 */
+
+position: absolute;
+left: 81.39%;
+right: 14.21%;
+top: 14.21%;
+bottom: 81.39%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 48 */
+
+position: absolute;
+left: 36.1%;
+right: 60.69%;
+top: 93.39%;
+bottom: 1.63%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Fill 50 */
+
+position: absolute;
+left: 60.69%;
+right: 36.1%;
+top: 1.63%;
+bottom: 93.39%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Shape */
+
+position: absolute;
+left: 6.48%;
+right: 84.41%;
+top: 24.32%;
+bottom: 69.32%;
+
+background: linear-gradient(0deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.78)), rgba(255, 255, 255, 0.34);
+backdrop-filter: blur(67.957px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Subtract */
+
+position: absolute;
+width: 30.79px;
+height: 26.64px;
+left: 2.78px;
+top: 10.47px;
+
+/* Vibrant Labels/Dark/Vibrant Secondary */
+background: #999999;
+background-blend-mode: plus-lighter;
+
+
+/* Vector */
+
+position: absolute;
+left: 5.34%;
+right: 35.44%;
+top: 20.14%;
+bottom: 28.63%;
+
+
+
+/* Path */
+
+position: absolute;
+left: 47.3%;
+right: 47.71%;
+top: 47.49%;
+bottom: 47.52%;
+
+
+
+/* Label */
+
+position: absolute;
+width: 21px;
+height: 11px;
+left: calc(50% - 21px/2);
+top: calc(50% - 11px/2 - 10.75px);
+
+font-family: 'SF Pro';
+font-style: normal;
+font-weight: 510;
+font-size: 9.5px;
+line-height: 11px;
+
+/* Vibrant Labels/Dark/Vibrant Primary */
+color: #FFFFFF;
+

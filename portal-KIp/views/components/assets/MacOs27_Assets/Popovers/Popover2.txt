@@ -1,0 +1,115 @@
+/* Popover */
+
+position: relative;
+width: 200px;
+height: 200px;
+
+
+
+/* Popover */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%;
+
+
+
+/* Fill + Shadow */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: -10.5px;
+
+background: linear-gradient(0deg, rgba(191, 191, 191, 0.1), rgba(191, 191, 191, 0.1)), rgba(255, 255, 255, 0.7);
+background-blend-mode: darken, lighten;
+box-shadow: 0.5px 0px 0px #DBDBDB, -0.5px 0px 0px #DBDBDB, 0px 8px 48px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+
+/* Body */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: linear-gradient(0deg, rgba(226, 226, 226, 0.35), rgba(226, 226, 226, 0.35)), rgba(255, 255, 255, 0.0001);
+border: 0.5px solid rgba(0, 0, 0, 0.06);
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 8px 15px 6px rgba(0, 0, 0, 0.18), inset 0px 0.5px 1px 0.5px rgba(255, 255, 255, 0.5);
+backdrop-filter: blur(40.7742px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 20px;
+
+
+/* Cartouche */
+
+position: absolute;
+width: 46px;
+height: 10.5px;
+left: calc(50% - 46px/2);
+bottom: -10.5px;
+
+background: #7ACE6E;
+
+
+/* Glass Effect */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: -10.5px;
+
+background: #FFFFFF;
+background-blend-mode: multiply;
+box-shadow: inset 0px 1px 1px #333333, inset 0px -1px 1px #333333;
+border-radius: 20px;
+
+
+/* Body */
+
+position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: linear-gradient(0deg, rgba(226, 226, 226, 0.35), rgba(226, 226, 226, 0.35)), rgba(255, 255, 255, 0.0001);
+border: 0.5px solid rgba(0, 0, 0, 0.06);
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 8px 15px 6px rgba(0, 0, 0, 0.18), inset 0px 0.5px 1px 0.5px rgba(255, 255, 255, 0.5);
+backdrop-filter: blur(40.7742px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 20px;
+
+
+/* Cartouche */
+
+position: absolute;
+width: 46px;
+height: 10.5px;
+left: calc(50% - 46px/2);
+bottom: -10.5px;
+
+background: #7ACE6E;
+
+
+/* Content Area */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px;
+gap: 8px;
+
+position: absolute;
+width: 200px;
+height: 200px;
+left: 0px;
+top: 0px;
+

@@ -1,0 +1,93 @@
+// Configuración del cliente y conexión a Supabase
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ==========================================
+// ENUMS (Reglas de negocio y estados cerrados)
+// ==========================================
+
+enum Rol {
+  COORDINADOR
+  OPERADOR
+}
+
+enum EstadoOperativo {
+  DISPONIBLE
+  EN_TERRENO
+  AUSENTE
+}
+
+enum OrigenIngesta {
+  CORREO
+  LLAMADA
+  JEFATURA
+}
+
+enum EstadoTicket {
+  NUEVO
+  EN_PROGRESO
+  EN_ESPERA_TERCEROS
+  CERRADO
+}
+
+enum AreaDesignada {
+  GENERAL
+  REDES_FTTH
+  TRAFICO_INALAMBRICO
+  WAN
+  GRANDES_CLIENTES
+  SEGURIDAD
+  TELEFONIA
+}
+
+// ==========================================
+// MODELOS (Tablas en la Base de Datos)
+// ==========================================
+
+model User {
+  id               String          @id @default(uuid())
+  email            String          @unique
+  nombre           String
+  rol              Rol             @default(OPERADOR)
+  area_designada   AreaDesignada   @default(GENERAL)
+  estado_operativo EstadoOperativo @default(DISPONIBLE)
+  
+  tickets_creados   Ticket[] @relation("CreadorTicket")
+  tickets_asignados Ticket[] @relation("AsignadoTicket")
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+
+model Ticket {
+  id                 String        @id @default(uuid())
+  codigo_incidencia  String        @unique 
+  asunto             String
+  descripcion        String?       @db.Text
+  estado_actual      EstadoTicket  @default(NUEVO)
+  puntos_complejidad Int           @default(0) // Se asigna al cerrar el ticket
+  origen_ingesta     OrigenIngesta @default(CORREO)
+  area_designada     AreaDesignada @default(GENERAL)
+  
+  // Relación: Quién reportó o creó el ticket (Opcional, si viene de correo automático puede ser nulo)
+  creado_por_id      String?
+  creado_por         User?         @relation("CreadorTicket", fields: [creado_por_id], references: [id])
+  
+  // Relación: Operador encargado (Nulo si está en la cola general)
+  asignado_a_id      String?
+  asignado_a         User?         @relation("AsignadoTicket", fields: [asignado_a_id], references: [id])
+  
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  fecha_asignacion   DateTime? 
+  fecha_cierre       DateTime?
+}
